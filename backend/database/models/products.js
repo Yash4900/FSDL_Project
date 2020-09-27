@@ -14,10 +14,10 @@ const ProductSchema = new mongoose.Schema({
 		type: String
 	},
 	price: {
-		type: int
+		type: Number
 	},
 	quantity: {
-		type: int
+		type: Number
 	},
 	short_desc: {
 		type: String

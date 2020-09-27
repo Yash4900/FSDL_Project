@@ -4,6 +4,14 @@ const app = express();
 //datasbase connection
 const mongoose = require('./database/dbcon');
 
+//models
+const addresses = require('./database/models/address');
+const categories = require('./database/models/categories');
+const orders = require('./database/models/orders');
+const orders_details = require('./database/models/ordersDetails');
+const products = require('./database/models/products');
+const users = require('./database/models/users');
+
 //CORS
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

@@ -8,7 +8,7 @@ const OrderSchema = new mongoose.Schema({
 		type: mongoose.Types.ObjectId
 	},
 	quantity: {
-		type: int
+		type: Number
 	}
 });
 

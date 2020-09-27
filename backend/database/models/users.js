@@ -17,10 +17,10 @@ const UserSchema = new mongoose.Schema({
 		type: String
 	},
 	age: {
-		type: int
+		type: Number
 	},
 	role: {
-		type: int
+		type: Number
 	},
 	photoUrl: {
 		type: String
