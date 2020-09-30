@@ -4,11 +4,13 @@ const app = express();
 //datasbase connection
 const mongoose = require('./database/dbcon');
 
-//import router
+//import routes
 const productRoute = require('./routes/productRoute');
+const orderRoute = require('./routes/orderRoute')
 
-//use route
+//use routes
 app.use('/products', productRoute);
+app.use('/orders', orderRoute)
 
 //CORS
 app.use(function(req, res, next) {
