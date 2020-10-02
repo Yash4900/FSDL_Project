@@ -9,14 +9,18 @@ const orders_details = require('../database/models/ordersDetails');
 
 //get all orders
 router.get('/', (req, res) => {
-    ordersDetails.find({})
+    ordersDetails.find({}, {quantity: 0})
         .populate({
             path: '_orderId',
             populate: {
-                path: '_userId'
+                path: '_userId',
+                select: 'username'
             }
         })
-        .populate('_productId')
+        .populate({
+            path: '_productId',
+            select: 'title description price'
+        })
         .then(orders => {
             if (orders.length > 0) {
                 res.json(orders);
@@ -35,7 +39,10 @@ router.get('/:orderId', (req, res) => {
                 path: '_userId'
             }
         })
-        .populate('_productId')
+        .populate({
+            path: '_productId',
+            select: 'title description price image'
+        })
         .then(orders => {
             if (orders.length > 0) {
                 res.json(orders);
@@ -68,9 +75,9 @@ router.post('/new', async(req, res) => {
                     }
 
                     orders_details.save({
-                        'order_id': newOrderId,
-                        'product_id': p.id,
-                        'quantity': inCart
+                        order_id: newOrderId,
+                        product_id: p.id,
+                        quantity: inCart
                     }).then(newId => {
                         products.update({'_id': p.id}, {
                             quantity: data.quantity

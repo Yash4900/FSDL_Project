@@ -17,8 +17,8 @@ router.get('/', (req, res) => {
         startValue = 0;
         endValue = 10;
     }
-    products.find({})
-        .populate("_catId") //join products and category
+    products.find({}, 'title price quantity description image')
+        .populate("_catId", 'title') 
         .then(prods => {
             if (prods.length > 0) {
                 res.status(200).json({
@@ -35,8 +35,8 @@ router.get('/', (req, res) => {
 //get one product
 router.get('/:prodId', (req, res) => {
     var productId = req.params.prodId;
-    products.find({ "_id": productId})
-        .populate("_catId") //join products and category
+    products.find({ "_id": productId}, 'title price quantity description image')
+        .populate("_catId", 'title')
         .then(prod => {
             if (prod.length > 0) {
                 res.status(200).json(prod);
@@ -61,7 +61,7 @@ router.get('/category/:catName', (req, res) => {
         startValue = 0;
         endValue = 10;
     }
-    products.find()
+    products.find({}, 'title price quantity description image')
         .populate('_catId', null, {title: {$regex: `${cat}`, $options: 'i' } })
         .then((prods) => {
             prods = prods.filter(function(prod){
@@ -80,6 +80,3 @@ router.get('/category/:catName', (req, res) => {
 })
 
 module.exports = router;
-
-
-
