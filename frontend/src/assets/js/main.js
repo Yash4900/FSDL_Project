@@ -73,7 +73,7 @@
     asNavFor: '#product-imgs',
   });
 
-	// Product imgs Slick
+	Product imgs Slick
   $('#product-imgs').slick({
     slidesToShow: 3,
     slidesToScroll: 1,

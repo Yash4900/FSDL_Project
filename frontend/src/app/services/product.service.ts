@@ -11,7 +11,7 @@ export class ProductService {
   constructor( private http: HttpClient ) { }
 
   // get all products from the backend
-  getAllProducts(limitOfResults: Number = 10) {
+  getAllProducts(limitOfResults = 10) {
     return this.http.get(this.baseurl+'/products', {
       params: {
         limit: limitOfResults.toString()
