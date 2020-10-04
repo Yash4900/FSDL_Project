@@ -73,11 +73,11 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6" *ngFor="let p of products" >
                         <div class="card my-2">
-                            <img [src]="p.image" alt="{{p.title}}" height="200px" width="200px" class="card-img-top" style="cursor:pointer;" >
+                            <img src="{{p.image}}" alt="{{p.title}}" class="card-img-top" style="cursor:pointer; height: 200px; width: auto; margin:auto;" >
                             <!-- (click)="selectProduct(p.id)" -->
                             <div class="card-header">
                                 <div class="card-title">
-                                    <p>{{ p.title | titlecase }}</p>
+                                    <p><b>{{ p.title | titlecase }}</b></p>
                                 </div>
                             </div>
                         </div>
