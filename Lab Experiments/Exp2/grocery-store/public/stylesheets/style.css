@@ -1,0 +1,143 @@
+body {
+  font: 14px "Comic Sans MS", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#header {
+	height: 420px;
+	width: 100%; 
+	background-image: url('../images/header.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#login:hover {
+	color: gray;
+	cursor: pointer;
+}
+
+#title {
+	padding-top: 230px; 
+	font-size: 70px;
+	color: white;
+	padding-left: 420px;
+	background-color: #21090987;
+	padding-bottom: 93px;
+}
+
+#login {
+	text-align: right;
+	margin-right: 30px;
+	font-size: 25px; 
+}
+
+.product {
+	margin: 20px;
+	width: 25%;
+	padding: 20px;
+	border-style: solid;
+	border-color: grey;
+	border-radius: 5%;
+	float: left;
+	min-height: 450px;
+}
+
+.product_image > img{
+	max-width: 100%;
+
+}
+
+.product_name {
+	font-size: 20px;
+}
+
+#buy{
+	margin-left: 100px;
+	background-color: blue;
+	border-color: transparent;
+	color: white;
+	margin-left: 200px;
+	padding:5px;
+	width: 100px;
+	display: inline;
+	border-radius: 4px;
+}
+
+#details {
+	padding: 30px;
+	margin: 40px;
+	background-color: rgb(180, 227, 239);
+}
+
+#submit {
+	background-color: white;
+	border-color: transparent;
+	padding:5px;
+	width: 100px;
+	border-radius: 4px;
+}
+
+#submit:hover {
+	background-color: blue;
+	color:white;
+	cursor: pointer;
+}
+
+#form {
+	font-size: 15px;
+	margin: auto;
+	padding-left: 450px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.card {
+  max-width: 40vw;
+  height: 50vh;
+  /* background-color: #00B7FF; */
+  margin: auto;
+  padding: 20px;
+  align-items: center;
+  box-shadow: 0 0px 70px rgba(212, 0, 0, 0.2);
+}
+
+.heading {
+  margin: 20px;
+  text-align: center;
+}
+
+.input_1,.input_2 {
+  padding: 10px;
+  margin: 5px;
+}
+
+input {
+  min-width: 100%;
+  border: none;
+  height: 30px;
+  border-bottom: 1px solid black;
+}
+
+.button {
+  text-align: center;
+  
+  height: 20px;
+  
+  color: blue;
+}
+
+#home_login {
+  min-width:70% ;
+  border: 1px solid transparent;
+  height: 30px;
+  border-radius: 10px;
+  background-image:-webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20)); ;
+}

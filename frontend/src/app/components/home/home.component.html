@@ -73,11 +73,22 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6" *ngFor="let p of products" >
                         <div class="card my-2">
-                            <img src="{{p.image}}" alt="{{p.title}}" class="card-img-top" style="cursor:pointer; height: 200px; width: auto; margin:auto;" >
+                            <img src="{{p.image}}" alt="{{p.title}}" class="card-img-top" style="cursor:pointer; height: 200px; width: auto; margin:auto;" (click)="selectProduct(p._id)">
                             <!-- (click)="selectProduct(p.id)" -->
                             <div class="card-header">
                                 <div class="card-title">
                                     <p><b>{{ p.title | titlecase }}</b></p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6>{{p.description}}</h6>
+                                <p>{{p.price | currency:'INR'}}</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-outline-primary btn-sm btn-block" [class.disabled]="p.quantity < 1" [class.btn-outline-danger]="p.quantity < 1">
+                                    {{ p.quantity < 1 ? "No Stock" : "Add To Cart" }}    
+                                    </button>
                                 </div>
                             </div>
                         </div>

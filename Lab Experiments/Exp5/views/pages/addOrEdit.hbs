@@ -1,0 +1,51 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/products" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{product._id}}">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" placeholder="Enter product title" value="{{product.title}}">
+    </div>
+    <div class="form-group">
+        <label>Image</label>
+        <input type="text" class="form-control" name="image" placeholder="Enter image link" value="{{product.image}}">
+    </div>
+    <div class="form-group">
+        <label>Images</label>
+        <input type="text" class="form-control" name="images" placeholder="Enter comma separated image links" value="{{product.images}}">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name="description" placeholder="Enter product description" value="{{product.description}}">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Quantity</label>
+            <input type="number" class="form-control" name="quantity" min="1" placeholder="Enter product quantity" value="{{product.quantity}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Price</label>
+            <input type="number" class="form-control" name="price" placeholder="Enter product price" value="{{product.price}}">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Short description</label>
+            <input type="text" class="form-control" name="short_description" min="1" placeholder="Enter short description" value="{{product.short_desc}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Category</label><br>
+            <select name="category">
+                <option value="5f70b9d6bcaceb5a6bbf6061">Mobile</option>
+                <option value="5f71da029c3c52327c1b875a">Television</option>
+                <option value="5f71da1f9c3c52327c1b8761">Washing Machine</option>
+                <option value="5f71da399c3c52327c1b8764">Microwave</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info" style="margin: auto;">Submit</button>
+        <a class="btn btn-secondary" href="/products/list">View Stock</a>
+    </div>
+</form>
