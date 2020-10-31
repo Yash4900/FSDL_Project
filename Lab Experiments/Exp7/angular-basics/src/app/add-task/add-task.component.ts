@@ -13,16 +13,20 @@ export class AddTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() newTask: string;
+  newTask: string;
 
   tasks: any = [];
 
   addNewTask(taskName: string) {
-    var obj = {
-      name: taskName,
-      isComplete: false
+    if(taskName=='' || taskName==null){
+      alert("Please enter a task");
+    }else{
+      var obj = {
+        name: taskName,
+        isComplete: false
+      }
+      this.tasks.push(obj);
     }
-    this.tasks.push(obj);
   }
 
   deleteTask(selectedTask: any) {
