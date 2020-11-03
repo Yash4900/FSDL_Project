@@ -1,16 +1,26 @@
 <div>
     <div class="form-group">
         <label><b>New Task:</b> </label>
+        <!-- input field to add task
+        two-way data binding using ngModel 
+        we refer this element using #taskname -->
         <input class="form-control" type="text" #taskname placeholder="Enter task name" [(ngModel)]="newTask" required >
     </div>
     <div class="form-group">
+        <!-- Button to Add new task
+        we use event binding here 
+        value of input tag fetched using taskname.value-->
         <button class="btn btn-primary" (click)="addNewTask(taskname.value)" ><b>+ </b>Add Task</button>
     </div>
     <br><br>
+    <!-- for demonstrating two-way data binding -->
     <h2>Your new task is: {{newTask}}</h2>
 </div>
 <br><br>
 
+<!-- table to display tasks
+ngIf directive to apply condition
+show table only if there is atleast one task -->
 <div *ngIf="tasks.length>0">
     <h3>Your Tasks</h3>
     <table class="table table-striped">
@@ -18,13 +28,21 @@
             <tr>
                 <th>Task</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let task of tasks">
+                <!-- class binding and built in pipe 
+                apply complete class if task is complete 
+                completed task will appear in strikethrough form -->
                 <td [class.complete]="task.isComplete">{{task.name | uppercase}}</td>
+                <!-- custom pipe 
+                show tick mark if task completed else show cross -->
+                <td [innerHTML]="task.isComplete | symbolPipe"></td>
+                <!-- event binding -->
                 <td><button (click)="toggleComplete(task)" class="btn-primary">{{task.isComplete==true ? 'Mark Incomplete' : 'Mark Complete'}}</button></td>
+                <!-- event binding -->
                 <td><button class="btn-danger" (click)="deleteTask(task)">Delete</button></td>
             </tr>
         </tbody>
