@@ -81,13 +81,13 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <h6>{{p.description}}</h6>
+                                <h6>{{p.description.substr(0,25)}}</h6>
                                 <p>{{p.price | currency:'INR'}}</p>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <button class="btn btn-outline-primary btn-sm btn-block" [class.disabled]="p.quantity < 1" [class.btn-outline-danger]="p.quantity < 1">
-                                    {{ p.quantity < 1 ? "No Stock" : "Add To Cart" }}    
+                                    <b>{{ p.quantity < 1 ? "No Stock" : "Add To Cart" }}</b>
                                     </button>
                                 </div>
                             </div>
