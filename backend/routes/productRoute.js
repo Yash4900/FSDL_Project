@@ -17,8 +17,8 @@ router.get('/', (req, res) => {
         startValue = 0;
         endValue = 10;
     }
-    products.find({}, 'title price quantity description image')
-        .populate("_catId", 'title') 
+    products.find({}, 'title price quantity description image') // we want only title price quantity ...
+        .populate("_catId", 'title') // populate is equivalent to join in mysql
         .then(prods => {
             if (prods.length > 0) {
                 res.status(200).json({
