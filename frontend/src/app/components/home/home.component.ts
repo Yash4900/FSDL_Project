@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   selectProduct(id) {
-    this.router.navigate(['/product', id]);
+    this.router.navigate(['/product', id]).then();
   }
 
 }
