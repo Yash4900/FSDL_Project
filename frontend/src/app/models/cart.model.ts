@@ -10,10 +10,10 @@ export interface CartModelServer {
     ];
 } 
 
-export interface CartModelPublic {
-    total: number;
-    prodData: [{
-        id: number,
-        inCart: number
-    }];
-}
+// export interface CartModelPublic {
+//     total: number;
+//     prodData: [{
+//         id: number,
+//         inCart: number
+//     }];
+// }

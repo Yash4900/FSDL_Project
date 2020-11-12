@@ -26,27 +26,30 @@ export class CartService {
 
   addProductToCart(product_id, quantity ?: number) {
     this.productService.getSingleProduct(product_id).subscribe( (prod: ProductModel) => {
-      console.log(prod);
-      if(this.cartData.data[0].product == undefined) {
-        this.cartData.data[0].numInCart = quantity != undefined ? quantity : 1;
+      
+      if(this.cartData.data[0].product === undefined) {
+        this.cartData.data[0].numInCart = quantity == undefined ? 1 : quantity;
         this.cartData.data[0].product = prod;
+        this.calculateTotal();
       }else{
         let index = this.cartData.data.findIndex( p => p.product._id == prod._id);
+        alert(index);
         if(index != -1) {
           if(quantity != undefined && quantity <= prod.quantity) {
-            this.cartData.data[0].numInCart = this.cartData.data[0].numInCart < prod.quantity ? quantity : prod.quantity;
+            this.cartData.data[index].numInCart = this.cartData.data[index].numInCart < prod.quantity ? quantity : prod.quantity;
           }else{
-            this.cartData.data[0].numInCart = this.cartData.data[0].numInCart < prod.quantity ? this.cartData.data[0].numInCart++ : prod.quantity;
+            this.cartData.data[index].numInCart = this.cartData.data[index].numInCart < prod.quantity ? this.cartData.data[0].numInCart+1 : prod.quantity;
           }
+          alert(this.cartData.data[index].numInCart);
         }else{
           this.cartData.data.push({
             numInCart: 1,
             product: prod
           });
         }
+        this.calculateTotal();
       }
     });
-    // this.calculateTotal();
     console.log(this.cartData);
   }
 

@@ -39,7 +39,7 @@ router.get('/:prodId', (req, res) => {
         .populate("_catId", 'title')
         .then(prod => {
             if (prod.length > 0) {
-                res.status(200).json(prod);
+                res.status(200).json(prod[0]);
             } else {
                 res.json({message: "No products found"});
             }
