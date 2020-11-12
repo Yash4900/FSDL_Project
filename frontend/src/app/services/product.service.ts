@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ProductModel } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class ProductService {
 
   // get single product
   getSingleProduct(id) {
-    return this.http.get(this.baseurl+'/products/'+id);
+    return this.http.get<ProductModel>(this.baseurl+'/products/'+id);
   }
 
   // get products of a category

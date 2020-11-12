@@ -26,10 +26,10 @@ export class CartService {
 
   addProductToCart(product_id, quantity ?: number) {
     this.productService.getSingleProduct(product_id).subscribe( (prod: ProductModel) => {
-      console.log(prod);
-      if(this.cartData.data[0].product == undefined) {
-        this.cartData.data[0].numInCart = quantity != undefined ? quantity : 1;
+      if(this.cartData.data[0].product === undefined) {
+        this.cartData.data[0].numInCart = quantity == undefined ? 1 : quantity;
         this.cartData.data[0].product = prod;
+        this.calculateTotal();
       }else{
         let index = this.cartData.data.findIndex( p => p.product._id == prod._id);
         if(index != -1) {
@@ -44,9 +44,9 @@ export class CartService {
             product: prod
           });
         }
+        this.calculateTotal();
       }
     });
-    // this.calculateTotal();
     console.log(this.cartData);
   }
 
@@ -58,7 +58,6 @@ export class CartService {
       data.numInCart--;
     }
     this.calculateTotal();
-    console.log(this.cartData);
   }
 
   deleteProductFromCart(index: number) {1
@@ -69,7 +68,6 @@ export class CartService {
       this.cartData = {total: 0, data: [{product: undefined, numInCart: 0}]};
     }
     this.calculateTotal();
-    console.log(this.cartData);
   }
 
   calculateTotal() {
