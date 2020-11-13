@@ -98,6 +98,7 @@ export class CartService {
     let sub_total = 0;
     const p = this.cartData.data[index];
     sub_total = p.product.price * p.numInCart;
+    return sub_total;
   }
 
   resetServerData() {
