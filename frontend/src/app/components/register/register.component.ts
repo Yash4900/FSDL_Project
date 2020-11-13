@@ -16,9 +16,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    this.registerService.registerUser(form.value).subscribe((res: { uid: string,message: string}) => {
-      alert(res.message+"\nUser Id: "+res.uid);
+    this.registerService.registerUser(form.value).subscribe((res: { message: string}) => {
+      alert(res.message);
     });
   }
 }

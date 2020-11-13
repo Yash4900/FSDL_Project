@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const products = require('../database/models/products');
 const orders = require('../database/models/orders');
 const ordersDetails = require('../database/models/ordersDetails');
-const users = require('../database/models/users');
 const orders_details = require('../database/models/ordersDetails');
 
 //get all orders

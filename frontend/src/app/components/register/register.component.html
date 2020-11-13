@@ -9,9 +9,15 @@
         <label>Password</label>
         <input type="password" ngModel #password="ngModel" class="form-control" name="password" placeholder="Enter password" >
     </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" ngModel #email="ngModel" class="form-control" name="email" placeholder="Enter email address" >
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="email" ngModel #email="ngModel" class="form-control" name="email" placeholder="Enter email address" >
+        </div>
+        <div class="form-group col-md-6">
+            <label>Phone Number</label>
+            <input type="text" ngModel #phone="ngModel" class="form-control" name="phone" placeholder="Enter phone number" >
+        </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-4">
@@ -27,10 +33,39 @@
             <input type="number" ngModel #age="ngModel" class="form-control" name="age" placeholder="Enter age" min="18">
         </div>
     </div>
+    <h4>Address</h4>
     <div class="form-row">
-        <div class="form-group col-md-2">
-            <button type="submit">Submit</button>
+        <div class="form-group col-md-4">
+            <label>Address line 1</label>
+            <input type="text" ngModel #line1="ngModel" class="form-control" name="line1" placeholder="Enter address line 1">
         </div>
+        <div class="form-group col-md-4">
+            <label>Address line 2</label>
+            <input type="text" ngModel #line2="ngModel" class="form-control" name="line2" placeholder="Enter address line 2">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>City</label>
+            <input type="text" ngModel #city="ngModel" class="form-control" name="city" placeholder="Enter city">
+        </div>
+        <div class="form-group col-md-4">
+            <label>State</label>
+            <input type="text" ngModel #state="ngModel" class="form-control" name="state" placeholder="Enter state">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Country</label>
+            <input type="text" ngModel #country="ngModel" class="form-control" name="country" placeholder="Enter country" min="18">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label>PIN</label>
+            <input type="text" ngModel #pin="ngModel" class="form-control" name="pin" placeholder="Enter pin" min="18">
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <button class="btn btn-primary" type="submit">Submit</button>
     </div>
 </form>
 </div>
