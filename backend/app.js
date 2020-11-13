@@ -12,15 +12,17 @@ app.use(function(req, res, next) {
     next();
 });
 
+//this will allow our application to use json data
+app.use(express.json());
+
 //import routes
 const productRoute = require('./routes/productRoute');
 const orderRoute = require('./routes/orderRoute');
+const registerRoute = require('./routes/registerRoute')
 
 //use routes
 app.use('/products', productRoute);
 app.use('/orders', orderRoute);
-
-//this will allow our application to use json data
-app.use(express.json());
+app.use('/register', registerRoute);
 
 app.listen(3000, () => console.log("Server running on port 3000"));

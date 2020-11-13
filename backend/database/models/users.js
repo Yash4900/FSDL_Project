@@ -19,15 +19,6 @@ const UserSchema = new mongoose.Schema({
 	age: {
 		type: Number
 	},
-	role: {
-		type: Number
-	},
-	photoUrl: {
-		type: String
-	},
-	type: {
-		type: String
-	}
 });
 
 const users = mongoose.model('users', UserSchema);

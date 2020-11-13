@@ -12,6 +12,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
+  // this is to get details of the order and show on thankyou page
   getSingleOrder(orderId) {
     return this.http.get<ProductResponseModel[]>(this.baseurl+'/orders/'+orderId).toPromise();
   }
