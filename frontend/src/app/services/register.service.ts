@@ -13,5 +13,10 @@ export class RegisterService {
   registerUser(user) {
     return this.http.post(`${this.baseurl}/register`, user);
   }
+
+  verifyUser(credentials) {
+    return this.http.post(`${this.baseurl}/register/verify`, credentials);
+  }
+
 }
 

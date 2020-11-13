@@ -16,8 +16,8 @@
           </div>
           <div class="order-products">
             <div class="order-col" *ngFor="let c of cartData.data;">
-              <div>{{c.numInCart}}x {{c.product.name}}</div>
-              <div>{{(c.product.price*c.numInCart) | currency:'USD'}}</div>
+              <div>{{c.numInCart}}x {{c.product.title}}</div>
+              <div>{{(c.product.price*c.numInCart) | currency:'INR'}}</div>
             </div>
           </div>
           <div class="order-col">
@@ -26,7 +26,7 @@
           </div>
           <div class="order-col dropdown-divider">
             <div><strong>TOTAL</strong></div>
-            <div><strong class="order-total">{{cartTotal | currency:'USD'}}</strong></div>
+            <div><strong class="order-total">{{cartTotal | currency:'INR'}}</strong></div>
           </div>
         </div>
         <div class="payment-method">
@@ -36,9 +36,9 @@
               <span></span>
               Direct Bank Transfer
             </label>
-            <div class="caption">
+            <!-- <div class="caption">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+            </div> -->
           </div>
           <div class="input-radio">
             <input type="radio" name="payment" id="payment-2">
@@ -46,9 +46,9 @@
               <span></span>
               Cheque Payment
             </label>
-            <div class="caption">
+            <!-- <div class="caption">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+            </div> -->
           </div>
           <div class="input-radio">
             <input type="radio" name="payment" id="payment-3">
@@ -56,19 +56,29 @@
               <span></span>
               Paypal System
             </label>
-            <div class="caption">
+            <!-- <div class="caption">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="input-checkbox">
-          <input type="checkbox" id="terms">
-          <label for="terms">
+        <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" ngModel #username="ngModel" class="form-control" name="username" placeholder="Enter username" >
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" ngModel #password="ngModel" class="form-control" name="password" placeholder="Enter password" >
+        </div>
+        <button type="submit" class="btn-outline-danger btn-sm my-2 btn-block" [disabled]="cartTotal <= 0 " >Place order</button>
+        </form>
+          <!-- <input type="checkbox" id="terms"> -->
+          <!-- <label for="terms">
             <span></span>
             I've read and accept the <a href="#">terms & conditions</a>
-          </label>
+          </label> -->
         </div>
-        <button type="submit" class="btn-outline-danger btn-sm my-2 btn-block" [disabled]="cartTotal <= 0 " (click)="onCheckout()">Place order</button>
       </div>
       <!-- /Order Details -->
     </div>

@@ -22,11 +22,11 @@
           <tbody>
           <tr *ngFor="let p of products">
             <td>
-              <img [src]="p.image" alt="{{p.title}}" class="img-thumbnail" width="100px">
+              <img [src]="p.product.image" alt="{{p.product.title}}" class="img-thumbnail" width="100px">
             </td>
-            <td>{{p.title}}</td>
-            <td>{{p.price | currency:'INR'}}</td>
-            <td>{{p.quantityOrdered}}</td>
+            <td>{{p.product.title}}</td>
+            <td>{{p.product.price | currency:'INR'}}</td>
+            <td>{{p.numInCart}}</td>
           </tr>
   
           <tr class="border-0">
@@ -39,6 +39,7 @@
           </tbody>
         </table>
       </div>
+      <button class="btn btn-primary" routerLink="/">Back to Home</button>
     </div>
   </div>
   

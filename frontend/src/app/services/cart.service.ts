@@ -112,21 +112,23 @@ export class CartService {
     };
   }
 
-  checkout(userId) {
-    this.http.post(`${this.baseurl}/orders/payment`, null).subscribe((res: Response)=> {
-      if(res.success==true){
-        this.resetServerData();
-        this.http.post('${this.baseurl}/orders/new', {
-          userId: userId,
+  checkout(userid) {
+
+    this.http.post(`${this.baseurl}/orders/payment`, null).subscribe((res: {success:boolean})=> {
+      if(res.success){
+        this.http.post(`${this.baseurl}/orders/new`, {
+          userId: userid,
           products: this.cartData.data
         }).subscribe((data: OrderResponse) => {
-          this.orderService.getSingleOrder(data.order_id).then(prods => {
+          this.orderService.getSingleOrder(data.order_id._id).then(prods => {
+            console.log(prods);
             if(data.success) {
+              console.log(this.cartData.data);
               const navigationExtras: NavigationExtras = {
                 state: {
                   message: data.message,
-                  products: prods,
-                  orderId: data.order_id,
+                  products: this.cartData.data,
+                  orderId: data.order_id._id,
                   total: this.cartData.total
                 }
               };
@@ -151,7 +153,3 @@ interface OrderResponse{
     numInCart: string;
   }]
 };
-
-interface Response{
-  success: boolean
-}

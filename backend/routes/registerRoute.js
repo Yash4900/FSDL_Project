@@ -32,4 +32,22 @@ router.post('/', (req, res) => {
     }).catch(err => console.log(err));
 });
 
+router.post('/verify', (req, res) => {
+    let uname = req.body.username;
+    let passwd = req.body.password;
+    users.find({'username':uname, 'password':passwd}).then(result => {
+        if(result.length>0){
+            res.json({
+                uid: result[0]._id,
+                success: true
+            });
+        }else{
+            res.json({
+                uid: undefined,
+                success:false
+            })
+        }
+    })
+});
+
 module.exports = router;

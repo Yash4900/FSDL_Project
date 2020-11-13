@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const orders = require('../database/models/orders');
+const products1 = require('../database/models/products')
 const ordersDetails = require('../database/models/ordersDetails');
 const orders_details = require('../database/models/ordersDetails');
 
@@ -53,15 +54,13 @@ router.get('/:orderId', (req, res) => {
 //place new order
 router.post('/new', async(req, res) => {
     let {userId, products} = req.body;
-    if (userId !== null && userId > 0) {
-        orders.save({
-            '_userId': userId
-        }).then((newOrderId) => {
-            if(newOrderId>0) {
+    if (userId != null) {
+        var order = new orders({'_userId': userId});
+        order.save().then((newOrderId) => {
+            if(newOrderId!=null) {
                 products.forEach(async (p) => {
-                    let data = await products.find({ '_id': p.id}).select('quantity');
-                    let inCart = parseInt(p.incart);
-
+                    let data = await products1.findOne({ '_id': p.product._id});
+                    let inCart = parseInt(p.numInCart);
                     if (data.quantity > 0) {
                         data.quantity = data.quantity - inCart;
 
@@ -71,28 +70,27 @@ router.post('/new', async(req, res) => {
                     } else {
                         data.quantity = 0;
                     }
-
-                    orders_details.save({
-                        order_id: newOrderId,
-                        product_id: p.id,
-                        quantity: inCart
-                    }).then(newId => {
-                        products.update({'_id': p.id}, {
+                    let order_detail = new orders_details({_orderId: newOrderId,
+                        _productId: p.product._id,
+                        quantity: inCart});
+                    order_detail.save().then(newId => {
+                        products1.updateOne({'_id': p.product._id}, {
                             quantity: data.quantity
                         }).then(successNum => {
                         }).catch(err => console.log(err));
                     }).catch(err => console.log(err));
                 })
+                res.json({
+                    message: `Order successfully placed with order id ${newOrderId}`,
+                    success: true,
+                    order_id: newOrderId,
+                    products: products
+                })
             
             } else {
-                res.json({message: 'New order failed while adding order details', success: false});
+                res.json({message: 'New order failed while adding order details', success: false, order_id: undefined, products: undefined});
             }
-            res.json({
-                message: `Order successfully placed with order id ${newOrderId}`,
-                success: true,
-                order_id: newOrderId,
-                products: products
-            })
+            
 
         }).catch(err => console.log(err))
     }
