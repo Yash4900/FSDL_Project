@@ -18,11 +18,11 @@ app.use(express.json());
 //import routes
 const productRoute = require('./routes/productRoute');
 const orderRoute = require('./routes/orderRoute');
-const registerRoute = require('./routes/registerRoute')
+const authRoute = require('./routes/authRoute')
 
 //use routes
 app.use('/products', productRoute);
 app.use('/orders', orderRoute);
-app.use('/register', registerRoute);
+app.use('/auth', authRoute);
 
 app.listen(3000, () => console.log("Server running on port 3000"));

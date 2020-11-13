@@ -1,6 +1,6 @@
 import { ProductModel } from './product.model';
 
-export interface CartModelServer {
+export interface CartModel {
     total: number;
     data: [
         {
@@ -9,11 +9,3 @@ export interface CartModelServer {
         }
     ];
 } 
-
-// export interface CartModelPublic {
-//     total: number;
-//     prodData: [{
-//         id: number,
-//         inCart: number
-//     }];
-// }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { CartModelServer } from '../models/cart.model';
+import { CartModel } from '../models/cart.model';
 import { ProductModel } from '../models/product.model';
 import { OrderService } from './order.service';
 import { ProductService } from './product.service';
@@ -12,40 +12,46 @@ import { ProductService } from './product.service';
 })
 export class CartService {
 
-  private cartData: CartModelServer = {
-    total: 0,
+  // cart data
+  private cartData: CartModel = {
+    total: 0, // total amount of all products
     data: [{
-      product: undefined,
-      numInCart: 0
+      product: undefined, // product details
+      numInCart: 0 // quantity in cart
     }
     ]
   };
 
+  // we subscribe to this variables in other components so that whenever the data changes the data is also 
+  // updated in that components . We use next() method to update data 
   cartTotal$ = new BehaviorSubject<number>(0);
-  cartData$ = new BehaviorSubject<CartModelServer>(this.cartData);
+  cartData$ = new BehaviorSubject<CartModel>(this.cartData);
 
   readonly baseurl = 'http://localhost:3000';
 
   constructor(private router: Router, private http: HttpClient, private productService: ProductService, private orderService: OrderService) {  }
 
   addProductToCart(product_id, quantity ?: number) {
+
+    // get product details using product id
     this.productService.getSingleProduct(product_id).subscribe( (prod: ProductModel) => {
       
-      if(this.cartData.data[0].product === undefined) {
+      if(this.cartData.data[0].product === undefined) { // check if cart is empty
         this.cartData.data[0].numInCart = quantity == undefined ? 1 : quantity;
         this.cartData.data[0].product = prod;
         this.calculateTotal();
         this.cartTotal$.next(this.cartData.total);
         this.cartData$.next(this.cartData);
-      }else{
+      }else{ // cart is not empty
+        // find index of item in cart . if not in cart returns -1 
         let index = this.cartData.data.findIndex( p => p.product._id == prod._id);
-        if(index != -1) {
+        if(index != -1) { // if already in cart we update quantity
           if(quantity != undefined && quantity <= prod.quantity) {
             this.cartData.data[index].numInCart = this.cartData.data[index].numInCart < prod.quantity ? quantity : prod.quantity;
           }else{
             this.cartData.data[index].numInCart = this.cartData.data[index].numInCart < prod.quantity ? this.cartData.data[0].numInCart+1 : prod.quantity;
           }
-        }else{
+        }else{ // if not in cart we push 
           this.cartData.data.push({
             numInCart: 1,
             product: prod
@@ -56,22 +62,24 @@ export class CartService {
         this.cartData$.next(this.cartData);
       }
     });
-    console.log(this.cartData);
+    
   }
 
+  // update quantity of item in cart 
   updateCartItem(index: number, increase: boolean) {
     let data = this.cartData.data[index];
     if(increase) {
+      // we increase quantity only if available quantity is greater than quantity in cart
       data.numInCart < data.product.quantity ? data.numInCart++ : data.product.quantity;
     }else{
-      data.numInCart--;
+      data.numInCart > 0 ? data.numInCart-- : data.numInCart;
     }
     this.calculateTotal();
     this.cartTotal$.next(this.cartData.total);
     this.cartData$.next(this.cartData);
-    console.log(this.cartData);
   }
 
+  // delete a product from cart
   deleteProductFromCart(index: number) {
     if(window.confirm("Are you sure you want to delete the item ?")){
       this.cartData.data.splice(index, 1);
@@ -86,6 +94,7 @@ export class CartService {
     console.log(this.cartData);
   }
 
+  // calculate total amt
   calculateTotal() {
     let total_amt = 0;
     this.cartData.data.forEach(p => {
@@ -94,6 +103,7 @@ export class CartService {
     this.cartData.total = total_amt;
   }
 
+  // subtotal => total cost of 1 product => numInCart * price  
   calculateSubTotal(index: number) {
     let sub_total = 0;
     const p = this.cartData.data[index];
@@ -101,32 +111,19 @@ export class CartService {
     return sub_total;
   }
 
-  resetServerData() {
-    this.cartData = {
-      total: 0,
-      data: [{
-        product: undefined,
-        numInCart: 0
-      }
-      ]
-    };
-  }
-
+  // checkout
   checkout(userid) {
 
-    this.http.post(`${this.baseurl}/orders/payment`, null).subscribe((res: {success:boolean})=> {
+    this.http.post(`${this.baseurl}/orders/payment`, null).subscribe((res: {success:boolean})=> { // payment
       if(res.success){
+        // place new order
         this.http.post(`${this.baseurl}/orders/new`, {
           userId: userid,
           products: this.cartData.data
         }).subscribe((data: OrderResponse) => {
-          this.orderService.getSingleOrder(data.order_id._id).then(prods => {
-            console.log(prods);
             if(data.success) {
-              console.log(this.cartData.data);
               const navigationExtras: NavigationExtras = {
                 state: {
-                  message: data.message,
                   products: this.cartData.data,
                   orderId: data.order_id._id,
                   total: this.cartData.total
@@ -134,7 +131,6 @@ export class CartService {
               };
               this.router.navigate(['/thankyou'], navigationExtras);
             }
-          });
         });
       }else{
         alert('Some error occured!');
@@ -142,7 +138,6 @@ export class CartService {
     });
   }
 }
-
 
 interface OrderResponse{
   message: string;

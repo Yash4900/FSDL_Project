@@ -4,8 +4,8 @@ const router = express.Router();
 const users = require('../database/models/users');
 const address = require('../database/models/address');
 
-
-router.post('/', (req, res) => {
+// create user account / register
+router.post('/register', (req, res) => {
     var user = new users({
         username: req.body.username,
         password: req.body.password,
@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
     }).catch(err => console.log(err));
 });
 
+// check whether the user is register user
 router.post('/verify', (req, res) => {
     let uname = req.body.username;
     let passwd = req.body.password;

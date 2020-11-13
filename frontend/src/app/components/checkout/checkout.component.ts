@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../services/cart.service";
-import {CartModelServer} from "../../models/cart.model";
+import {CartModel} from "../../models/cart.model";
 import { NgForm } from '@angular/forms';
-import { RegisterService } from 'src/app/services/register.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'mg-checkout',
@@ -10,10 +10,10 @@ import { RegisterService } from 'src/app/services/register.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  cartData: CartModelServer;
+  cartData: CartModel;
   cartTotal: Number;
   checkoutForm: any;
-  constructor(private cartService: CartService, private registerService: RegisterService) {
+  constructor(private cartService: CartService, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -23,8 +23,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.registerService.verifyUser(form.value).subscribe((res: {uid , success:boolean}) => {
-      if(res.success){
+    // we check whether user is registered user
+    this.authService.verifyUser(form.value).subscribe((res: {uid , success:boolean}) => {
+      if(res.success){ // if registered user then checkout
         this.cartService.checkout(res.uid);
       }else{
         alert("Enter valid credentials!");

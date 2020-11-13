@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartModelServer } from 'src/app/models/cart.model';
+import { CartModel } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
-  cartData: CartModelServer;
+  cartData: CartModel;
   cartTotal: number;
 
   constructor(public cartService: CartService) { }

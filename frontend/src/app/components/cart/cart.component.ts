@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartModelServer } from 'src/app/models/cart.model';
+import { CartModel } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  cartData: CartModelServer;
+  cartData: CartModel;
   cartTotal: number;
   cartSubTotal: number;
 
@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
     this.cartService.cartData$.subscribe(data => this.cartData = data);
   }
 
+  // update product quantity
   updateQuantity(index: number, action: string) {
     this.cartService.updateCartItem(index, action=='increase'?true:false);
   }
