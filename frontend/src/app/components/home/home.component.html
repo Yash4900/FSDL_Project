@@ -59,6 +59,38 @@
     <div class="container">
         <!-- row -->
         <div class="row">
+            <label><b>Category</b></label>
+            <div class="col-md-6">
+                <div class="form-row">
+                <div class="form-group col-md-4">
+                    <select [(ngModel)]="category" class="input-select" (change)="changeCategory()">
+                        <option value="all" selected>All Categories</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="television">Television</option>
+                        <option value="washing machine">Washing machine</option>
+                        <option value="microwave">Microwave</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="chargers">Chargers</option>
+                        <option value="power bank">Power bank</option>
+                        <option value="refrigerator">Refrigerator</option>
+                        <option value="ac">AC</option>
+                        <option value="earphones">Earphones</option>
+                        <option value="headphones">Headphones</option>
+                        <option value="cameras">Cameras</option>
+                        <option value="smartwatches">Smart watches</option>
+                        <option value="pendrive">Pendrive</option>
+                        <option value="memory cards">Memory Card</option>
+                        <option value="routers">Routers</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <input class="input" [(ngModel)]="category" placeholder="Search here">
+                </div>
+                <div class="form-group col-md-2">
+                    <button class="search-btn" (click)="changeCategory()">Search</button>
+                </div>
+            </div>
+            </div>
 
             <!-- section title -->
             <div class="col-md-12">

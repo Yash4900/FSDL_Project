@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProductModel } from '../models/product.model';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ import { ProductModel } from '../models/product.model';
 export class ProductService {
 
   readonly baseurl = 'http://localhost:3000';
+  // category$ = new BehaviorSubject<string>('0');
+
 
   constructor( private http: HttpClient ) { }
 
