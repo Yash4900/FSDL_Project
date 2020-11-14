@@ -12,7 +12,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class HomeComponent implements OnInit {
 
   products: ProductModel[] = [];
-  category: string;
+  category: string = 'All';
 
   constructor(private productService: ProductService, private router: Router , private cartService: CartService) {    
   }
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   changeCategory() {
-    if(this.category=='all'){
+    if(this.category=='All'){
       this.productService.getAllProducts().subscribe( (prods: { count: number, products: ProductModel[] }) => {
         this.products = prods.products;
       });
