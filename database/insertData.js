@@ -10,117 +10,133 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
 
         // CATEGORIES----------------------------------------------------------------------------------------------------------------
 
-        // var objects = [
-        //     {
-        //         "title" : "Mobile"
-        //     },
+        var objects = [
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0bfc" },
+                "title" : "Mobile"
+            },
 
-        //     {
-        //         "title" : "Television"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0bfd" },
+                "title" : "Television"
+            },
 
-        //     {
-        //         "title" : "Washing Machine"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0bfe" },
+                "title" : "Washing Machine"
+            },
 
-        //     {
-        //         "title" : "Microwave"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0bff" },
+                "title" : "Microwave"
+            },
 
-        //     {
-        //         "title": "Laptop"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c00" },
+                "title": "Laptop"
+            },
             
-        //     {
-        //         "title": "Chargers"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c01" },
+                "title": "Chargers"
+            },
 
-        //     {
-        //         "title": "Power Bank"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c02" },
+                "title": "Power Bank"
+            },
 
-        //     {
-        //         "title": "Refrigerator"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c03" },
+                "title": "Refrigerator"
+            },
 
-        //     {
-        //         "title": "AC"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c04" },
+                "title": "AC"
+            },
 
-        //     {
-        //         "title": "Earphones"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c05" },
+                "title": "Earphones"
+            },
 
-        //     {
-        //         "title": "Headphones"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c06" },
+                "title": "Headphones"
+            },
 
-        //     {
-        //         "title": "Cameras"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c07" },
+                "title": "Cameras"
+            },
 
-        //     {
-        //         "title": "Smartwatches"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c08" },
+                "title": "Smartwatches"
+            },
 
-        //     {
-        //         "title": "Pendrive"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c09" },
+                "title": "Pendrive"
+            },
 
-        //     {
-        //         "title": "Memory Cards"
-        //     },
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c0a" },
+                "title": "Memory Cards"
+            },
 
-        //     {
-        //         "title": "Routers"
-        //     },
-        // ];
-        // dbase.collection("categories").insertMany(objects, (err, res) => {
-        //     if (err) {
-        //         throw err;
-        //     } else {
-        //         console.log("All categories inserted successfully");
-        //     }
-        // });
+            {
+                "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c0b" },
+                "title": "Routers"
+            },
+        ];
+        dbase.collection("categories").insertMany(objects, (err, res) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log("All categories inserted successfully");
+            }
+        });
         
         // USERS----------------------------------------------------------------------------------------------------------------
 
-        // var objectUser = [
-        //     {
-        //         "_id" : 109,
-        //         "username" : "yash123",
-        //         "password" : "yash@321",
-        //         "email" : "yashsatra@gmail.com",
-        //         "fname" : "Yash",
-        //         "lname" : "Satra",
-        //         "age" : 20
-        //     },
-        //     {
-        //         "_id" : 101,
-        //         "username" : "nishant123",
-        //         "password" : "nishant@321",
-        //         "email" : "nsp@gmail.com",
-        //         "fname" : "Nishant",
-        //         "lname" : "Pal",
-        //         "age" : 21
-        //     },
-        //     {
-        //         "_id" : 095,
-        //         "username" : "ssm123",
-        //         "password" : "sid@321",
-        //         "email" : "sid69@gmail.com",
-        //         "fname" : "Siddharth",
-        //         "lname" : "Mishra",
-        //         "age" : 19
-        //     },
-        // ];
-        // dbase.collection("users").insertMany(objectUser, (err, res) => {
-        //     if (err) {
-        //         throw err;
-        //     } else {
-        //         console.log("All users inserted successfully");
-        //     }
-        // });
+        var objectUser = [
+            {
+                "_id" : 109,
+                "username" : "yash123",
+                "password" : "yash@321",
+                "email" : "yashsatra@gmail.com",
+                "fname" : "Yash",
+                "lname" : "Satra",
+                "age" : 20
+            },
+            {
+                "_id" : 101,
+                "username" : "nishant123",
+                "password" : "nishant@321",
+                "email" : "nsp@gmail.com",
+                "fname" : "Nishant",
+                "lname" : "Pal",
+                "age" : 21
+            },
+            {
+                "_id" : 095,
+                "username" : "ssm123",
+                "password" : "sid@321",
+                "email" : "sid69@gmail.com",
+                "fname" : "Siddharth",
+                "lname" : "Mishra",
+                "age" : 19
+            },
+        ];
+        dbase.collection("users").insertMany(objectUser, (err, res) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log("All users inserted successfully");
+            }
+        });
         
         // // PRODUCTS----------------------------------------------------------------------------------------------------------------
 
@@ -136,7 +152,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 33900,
                 "quantity" : 4,
                 "short_desc" : "Available in multiple colours",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfc")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfc" }
             },
             
             {
@@ -147,7 +163,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 37900,
                 "quantity" : 10,
                 "short_desc" : "Sublime Camera",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfc")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfc" }
             },
 
             {
@@ -158,7 +174,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 10999,
                 "quantity" : 15,
                 "short_desc" : "Excellent display",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfc")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfc" }
             },
 
             {
@@ -169,7 +185,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 9900,
                 "quantity" : 10,
                 "short_desc" : "High Quality Camera",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfc")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfc" }
             },
 
             {
@@ -180,7 +196,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 33900,
                 "quantity" : 25,
                 "short_desc" : "Equipped with 90hz Fluid display",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfc")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfc" }
             },
 
             {
@@ -191,7 +207,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 33900,
                 "quantity" : 14,
                 "short_desc" : "4K video and optical image stabilization",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfc")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfc" }
             },
 
             // TELEVISION
@@ -204,7 +220,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 60999,
                 "quantity" : 6,
                 "short_desc" : "2020 Model",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfd")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfd" }
             },
             {
                 "title" : "Samsung LED Smart TV UA32T4340AKXXL",
@@ -214,7 +230,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 14489,
                 "quantity" : 4,
                 "short_desc" : "Resolution: HD Ready (1366x768) | Refresh Rate: 60 hertz",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfd")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfd" }
             },
             {
                 "title" : "Onida Fire TV 43FIF",
@@ -224,7 +240,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 21990,
                 "quantity" : 8,
                 "short_desc" : "Full HD Smart LED TV ",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfd")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfd" }
             },
             {
                 "title" : "TCL Full HD Certified Android Smart LED TV 40S6500FS",
@@ -234,7 +250,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 17999,
                 "quantity" : 20,
                 "short_desc" : "Black 2020 Model",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfd")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfd" }
             },
             {
                 "title" : "LG HD Ready Smart LED TV 32LM563BPTC",
@@ -244,7 +260,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 14999,
                 "quantity" : 7,
                 "short_desc" : "Dark Iron Gray 2020 Model",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfd")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfd" }
             },
 
             // WASHING MACHINES
@@ -257,7 +273,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 12999,
                 "quantity" : 5,
                 "short_desc" : "WA62M4100HY/TL, Imperial Silver, Center Jet Technology",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfe")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfe" }
             },
             {
                 "title" : "Whirlpool Top Loading Washing Machine",
@@ -267,7 +283,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 8999,
                 "quantity" : 9,
                 "short_desc" : "SUPERB ATOM 7.0, Grey Dazzle, TurboScrub Technology",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfe")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfe" }
             },
             {
                 "title" : "Intex Top Loading Washing Machine WMS62TL",
@@ -277,7 +293,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 6300,
                 "quantity" : 11,
                 "short_desc" : "White and Maroon",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bfe")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfe" }
             },
 
             // MICROWAVE
@@ -290,7 +306,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 13900,
                 "quantity" : 5,
                 "short_desc" : "Banishes Food Odour",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bff")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bff" }
             },
 
             {
@@ -301,7 +317,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 25999,
                 "quantity" : 8,
                 "short_desc" : "Glass Touch & Dial is sensitive to touch and easy to clean",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bff")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bff" }
             },
 
             {
@@ -312,7 +328,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 4600,
                 "quantity" : 2,
                 "short_desc" : "Food can be kept warm for long time",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0bff")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bff" }
             },
 
             // LAPTOP
@@ -325,7 +341,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 179999,
                 "quantity" : 6,
                 "short_desc" : "Stunning Retina display with True Tone technology",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c00")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c00" }
             },
 
             {
@@ -336,7 +352,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 52499,
                 "quantity" : 4,
                 "short_desc" : "HP TrueVision HD camera with integrated dual array digital microphone",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c00")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c00" }
             },
             
             {
@@ -347,7 +363,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 26684,
                 "quantity" : 3,
                 "short_desc" : "Waves MaxxAudio Pro | 3-Cell Battery, 42WHr",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c00")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c00" }
             },
 
             {
@@ -358,7 +374,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 77999,
                 "quantity" : 6,
                 "short_desc" : "Best Selling Gaming Laptop",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c00")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c00" }
             },
             
             // CHARGERS
@@ -371,7 +387,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 149,
                 "quantity" : 60,
                 "short_desc" : "Fast Charger - Black",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c01")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c01" }
             },
 
             {
@@ -382,7 +398,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 399,
                 "quantity" : 40,
                 "short_desc" : "Black Wall Charger",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c01")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c01" }
             },
 
             // POWER BANKS
@@ -395,7 +411,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 699,
                 "quantity" : 12,
                 "short_desc" : "18W Fast Charging",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c02")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c02" }
             },
 
             {
@@ -406,7 +422,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 449,
                 "quantity" : 17,
                 "short_desc" : "Compact Size and Fast Charging",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c02")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c02" }
             },
 
             // REFRIGERATOR
@@ -419,7 +435,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 10499,
                 "quantity" : 8,
                 "short_desc" : "Single Door Refrigerator",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c03")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c03" }
             },
 
             {
@@ -430,7 +446,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 26999,
                 "quantity" : 10,
                 "short_desc" : "Frost-Free Double Door Refrigerator",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c03")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c03" }
             },
             
             {
@@ -441,7 +457,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 11499,
                 "quantity" : 5,
                 "short_desc" : "Single Door Refrigerator",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c03")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c03" }
             },
             
             // AC
@@ -454,7 +470,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 29999,
                 "quantity" : 4,
                 "short_desc" : "Environment friendly - no ozone depletion potential & low global warming potential",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c04")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c04" }
             },
 
             {
@@ -465,7 +481,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 27999,
                 "quantity" : 2,
                 "short_desc" : "Turbo cool",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c04")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c04" }
             },
             
             {
@@ -476,7 +492,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 24999,
                 "quantity" : 1,
                 "short_desc" : "Intelligent super cooling, intelligent sleep",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c04")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c04" }
             },
 
             // EARPHONES
@@ -489,7 +505,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 349,
                 "quantity" : 20,
                 "short_desc" : "With Mic",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c05")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c05" }
             },
 
             {
@@ -500,7 +516,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 299,
                 "quantity" : 25,
                 "short_desc" : "with HD Microphone",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c05")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c05" }
             },
 
             // HEADPHONES
@@ -513,7 +529,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 21999,
                 "quantity" : 10,
                 "short_desc" : "30 Hours Battery Life, Quick Charge, Touch Control",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c06")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c06" }
             },
 
             {
@@ -524,7 +540,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 899,
                 "quantity" : 15,
                 "short_desc" : "Built in FM, Call Function, 9Hrs* Playback time and Supports Micro SD Card",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c06")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c06" }
             },
 
             // CAMERAS
@@ -537,7 +553,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 24999,
                 "quantity" : 14,
                 "short_desc" : "Connectivity: WiFi, NFC and Bluetooth built-in",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c07")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c07" }
             },
 
             {
@@ -548,7 +564,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 75999,
                 "quantity" : 19,
                 "short_desc" : "Multi-CAM 3500FX II 51-Point AF System",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c07")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c07" }
             },
 
             // SMARTWATCHES
@@ -561,7 +577,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 1999,
                 "quantity" : 15,
                 "short_desc" : "Special Features & Battery Life: Multiple Watch Faces",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c08")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c08" }
             },
 
             {
@@ -572,7 +588,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 3999,
                 "quantity" : 16,
                 "short_desc" : "Large 1.4 inch LCD Screen: ColorFit NAV has a high resolution of 320x320 pixels",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c08")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c08" }
             },
 
             // PENDRIVE
@@ -585,7 +601,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 329,
                 "quantity" : 45,
                 "short_desc" : "Ultra-compact and portable USB flash drive",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c09")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c09" }
             },
 
             {
@@ -596,7 +612,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 399,
                 "quantity" : 55,
                 "short_desc" : "Durable metal Charming appearance which brings a great sense of style",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c09")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c09" }
             },
 
             // MEMORY CARDS
@@ -609,7 +625,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 1199,
                 "quantity" : 60,
                 "short_desc" : "With Adapter",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c0a")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c0a" }
             },
 
             {
@@ -620,7 +636,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 649,
                 "quantity" : 70,
                 "short_desc" : "100MB/s Full HD & 4K UHD Memory Card with Adapter",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c0a")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c0a" }
             },
 
             // ROUTERS
@@ -633,7 +649,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 959,
                 "quantity" : 13,
                 "short_desc" : "IPv6 Compatible | AP/RE/WISP Mode",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c0b")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c0b" }
             },
 
             {
@@ -644,7 +660,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "price" : 12999,
                 "quantity" : 15,
                 "short_desc" : "Enjoy 4K HD streaming, gaming and more in quality without buffering",
-                "_catId" : ObjectId("5faf67e6b4cb0b06dc4c0c0b")
+                "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c0b" }
             },
         ];
         dbase.collection("products").insertMany(objects, (err, res) => {
