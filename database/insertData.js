@@ -440,7 +440,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
 
             {
                 "title" : "Panasonic 3 Star 6-Stage Inverter Frost-Free Double Door Refrigerator",
-                "image" : "https://images-na.ssl-images-amazon.com/images/I/61TerjdN68L._SX425_.jpg",
+                "image" : "https://images-na.ssl-images-amazon.com/images/I/71haKDFTB6L._SL1500_.jpg",
                 "images" : "",
                 "description" : "336 L",
                 "price" : 26999,
@@ -451,7 +451,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
             
             {
                 "title" : "Samsung 2 Star Direct Cool Single Door Refrigerator",
-                "image" : "https://images-na.ssl-images-amazon.com/images/I/61TerjdN68L._SX425_.jpg",
+                "image" : "https://images-na.ssl-images-amazon.com/images/I/71Zn7-s4j4L._SL1500_.jpg",
                 "images" : "",
                 "description" : "192 L",
                 "price" : 11499,
