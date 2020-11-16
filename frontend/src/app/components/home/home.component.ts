@@ -13,7 +13,7 @@ import { $ } from 'protractor';
 export class HomeComponent implements OnInit {
 
   products: ProductModel[] = [];
-  category: string;
+  category: string = 'All';
   selected: string;
   count = 0;
   slides = [
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   changeCategory(): void {
-    if (this.category === 'all') {
+    if (this.category == 'All') {
       this.productService.getAllProducts().subscribe((prods: { count: number, products: ProductModel[] }) => {
         this.products = prods.products;
       });
