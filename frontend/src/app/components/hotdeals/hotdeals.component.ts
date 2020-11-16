@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { ProductModel } from 'src/app/models/product.model';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-hotdeals',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotdealsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
+
+  products: ProductModel[] = [];
 
   slides = [
     { img: "/assets/img/c2.JPG" },
@@ -17,6 +22,13 @@ export class HotdealsComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.productService.getAllProducts().subscribe((prods: { count: number, products: ProductModel[] }) => {
+      this.products = prods.products;
+    });
+
+  }
+  addToCart(id): void {
+    this.cartService.addProductToCart(id);
   }
 
 }
