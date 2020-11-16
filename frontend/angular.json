@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/slick-carousel/slick/slick.scss",
+              "./node_modules/slick-carousel/slick/slick-theme.scss"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -36,7 +38,9 @@
               "src/assets/js/jquery.zoom.min.js",
               "src/assets/js/main.js",
               "src/assets/js/nouislider.min.js",
-              "src/assets/js/slick.min.js"
+              "src/assets/js/slick.min.js",
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/slick-carousel/slick/slick.min.js"
             ]
           },
           "configurations": {
@@ -130,6 +134,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "frontend"
 }

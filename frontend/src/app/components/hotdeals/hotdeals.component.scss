@@ -1,0 +1,38 @@
+.example-card {
+    max-width: 400px;
+    box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  #cards{
+      display: flex;
+      flex-wrap: wrap-reverse;
+      
+  }
+
+  .card{
+      margin: 20px;
+      display: flex;
+      flex-direction: row;
+  }
+ #remaining{
+   background-color: red;
+   color: white;
+   border-radius: 20px;
+   padding: 5px;
+  //  margin: 10px;
+ }
+  
+  .example-header-image {
+    background-image: url('https://1000logos.net/wp-content/uploads/2017/06/Logo-Samsung.png');
+    background-size: contain;
+    align-items: center;
+    align-self: center;
+    background-repeat: no-repeat;
+  }
+  .example-card{
+    width: 354px;
+    display: flex;
+    // flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+  }

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 
+import { MatCardModule } from '@angular/material/card';
+
+import { CountdownModule } from 'ngx-countdown';
+
+
+import { HotdealsComponent } from './components/hotdeals/hotdeals.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +36,21 @@ import { RegisterComponent } from './components/register/register.component';
     HomeComponent,
     ProductComponent,
     ThankyouComponent,
-    RegisterComponent
+    RegisterComponent,
+    HotdealsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    CountdownModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
