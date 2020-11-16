@@ -89,7 +89,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
             {
                 "_id" : { "$oid":"5faf67e6b4cb0b06dc4c0c0b" },
                 "title": "Routers"
-            },
+            }
         ];
         dbase.collection("categories").insertMany(objects, (err, res) => {
             if (err) {
@@ -141,8 +141,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
         // // PRODUCTS----------------------------------------------------------------------------------------------------------------
 
         var objects = [
-
-            // MOBILES
 
             {
                 "title" : "Samsung Galaxy S10",
@@ -209,8 +207,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "4K video and optical image stabilization",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfc" }
             },
-
-            // TELEVISION
             
             {
                 "title" : "Sony Bravia",
@@ -263,8 +259,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfd" }
             },
 
-            // WASHING MACHINES
-
             {
                 "title" : "Samsung Top load Washing Machine",
                 "image" : "https://images-na.ssl-images-amazon.com/images/I/61JeJKWBWNL._SL1500_.jpg",
@@ -295,8 +289,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "White and Maroon",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bfe" }
             },
-
-            // MICROWAVE
             
             {
                 "title" : "Samsung Convection Microwave Oven",
@@ -330,8 +322,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Food can be kept warm for long time",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0bff" }
             },
-
-            // LAPTOP
             
             {
                 "title" : "Apple MacBook Pro",
@@ -376,9 +366,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Best Selling Gaming Laptop",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c00" }
             },
-            
-            // CHARGERS
-            
+                        
             {
                 "title" : "Glorious GE052400U04",
                 "image" : "https://images-na.ssl-images-amazon.com/images/I/51AQfd6oBGL._SL1280_.jpg",
@@ -400,8 +388,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Black Wall Charger",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c01" }
             },
-
-            // POWER BANKS
             
             {
                 "title" : "Mi Power Bank 3i Dual Output and Input Port",
@@ -424,8 +410,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Compact Size and Fast Charging",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c02" }
             },
-
-            // REFRIGERATOR
             
             {
                 "title" : "Godrej 2 Star Direct-Cool Single Door Refrigerator",
@@ -459,9 +443,7 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Single Door Refrigerator",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c03" }
             },
-            
-            // AC
-            
+                        
             {
                 "title" : "Voltas 3 Star Split AC",
                 "image" : "https://images-na.ssl-images-amazon.com/images/I/511fs9x31bL._SL1500_.jpg",
@@ -494,8 +476,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Intelligent super cooling, intelligent sleep",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c04" }
             },
-
-            // EARPHONES
             
             {
                 "title" : "boAt Bassheads 100 in Ear Wired Earphones",
@@ -518,8 +498,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "with HD Microphone",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c05" }
             },
-
-            // HEADPHONES
             
             {
                 "title" : "Sony WH-1000XM3",
@@ -542,8 +520,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Built in FM, Call Function, 9Hrs* Playback time and Supports Micro SD Card",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c06" }
             },
-
-            // CAMERAS
             
             {
                 "title" : "Canon EOS 1500D 24.1 Digital SLR Camera ",
@@ -566,8 +542,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Multi-CAM 3500FX II 51-Point AF System",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c07" }
             },
-
-            // SMARTWATCHES
             
             {
                 "title" : "HONOR Band 5",
@@ -590,8 +564,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Large 1.4 inch LCD Screen: ColorFit NAV has a high resolution of 320x320 pixels",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c08" }
             },
-
-            // PENDRIVE
             
             {
                 "title" : "SanDisk Cruzer Blade USB Flash Drive",
@@ -614,8 +586,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "Durable metal Charming appearance which brings a great sense of style",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c09" }
             },
-
-            // MEMORY CARDS
             
             {
                 "title" : "SanDisk Class 10 microSDXC Memory Card",
@@ -638,8 +608,6 @@ mongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
                 "short_desc" : "100MB/s Full HD & 4K UHD Memory Card with Adapter",
                 "_catId" : { "oid":"5faf67e6b4cb0b06dc4c0c0a" }
             },
-
-            // ROUTERS
             
             {
                 "title" : "TP-link N300 WiFi Wireless Router TL-WR845N",
