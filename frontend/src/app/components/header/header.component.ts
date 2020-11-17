@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(public cartService: CartService) { }
 
   ngOnInit(): void {
+    // whenever cart data changes we 
     this.cartService.cartTotal$.subscribe(total => this.cartTotal = total);
     this.cartService.cartData$.subscribe(data => this.cartData = data);
   }

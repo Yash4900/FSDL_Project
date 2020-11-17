@@ -91,7 +91,7 @@ export class CartService {
 
     this.cartTotal$.next(this.cartData.total);
     this.cartData$.next(this.cartData);
-    console.log(this.cartData);
+    // console.log(this.cartData);
   }
 
   // calculate total amt
