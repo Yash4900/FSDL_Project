@@ -8,7 +8,7 @@
                   <mat-card-title>{{item.title | titlecase}}</mat-card-title>
                   <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="{{item.image}}" alt="mobile">
+                <img mat-card-image src="{{item.image}}" alt="mobile" style="cursor:pointer; height: 200px; width: auto; margin:auto;" (click)="selectProduct(item._id)">
                 <mat-card-content>
                   <p>
                     Price : {{item.price}} <i class="fas fa-rupee-sign    "></i><br>
