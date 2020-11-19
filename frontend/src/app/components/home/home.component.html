@@ -14,61 +14,6 @@
         </div>
 
 </div>
-<div class="section">
-    <!-- container -->
-    
-    <div class="container">
-        <!-- row -->
-        
-        <div class="row">
-            <!-- shop -->
-            <!-- <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="/assets/img/shop01.png" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Laptop<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- /shop -->
-
-            <!-- shop -->
-            <!-- <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="/assets/img/shop03.png" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Accessories<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div> -->
-            <!-- /shop -->
-
-            <!-- shop -->
-            <!-- <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="/assets/img/shop02.png" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Cameras<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div> -->
-            <!-- /shop -->
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /SECTION -->
 
 <!-- SECTION -->
 <div class="section">
@@ -101,7 +46,7 @@
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <input class="input" [(ngModel)]="category" placeholder="Search here">
+                    <input class="input" [(ngModel)]="category" placeholder="What are you looking for?">
                 </div>
                 <div class="form-group col-md-2">
                     <button class="search-btn btn" (click)="changeCategory()" style="border-color: #039BE3; background-color: #039BE3; color: white;">Search</button>
@@ -141,22 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- product -->
-                   <!--  <div class="product">
-                        <div class="product-img">
-                            <img src="/assets/img/product01.png" alt="">
-                            
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                        </div>
-                    </div> -->
-                    <!-- /product -->
+                    
                 </div>
             </div>
             <!-- Products tab & slick -->
@@ -203,7 +133,7 @@
                     </ul>
                     <h2 class="text-uppercase">hot deal this week</h2>
                     <p>New Collection Up to 50% OFF</p>
-                    <a class="primary-btn cta-btn" href="#">Shop now</a>
+                    <a class="primary-btn cta-btn" routerLink="/hotdeals">Shop now</a>
                 </div>
             </div>
         </div>
@@ -213,41 +143,6 @@
 </div>
 <!-- /HOT DEAL SECTION -->
 
-<!-- NEWSLETTER -->
-<div id="newsletter" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="newsletter">
-                    <p>Sign Up for the <strong>NEWSLETTER</strong></p>
-                    <form>
-                        <input class="input" type="email" placeholder="Enter Your Email">
-                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-                    </form>
-                    <ul class="newsletter-follow">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /NEWSLETTER -->
 
 <!-- toast notification -->
 <div id="snackbar">Some text some message..</div>

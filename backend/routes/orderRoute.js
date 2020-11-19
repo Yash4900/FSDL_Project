@@ -5,51 +5,6 @@ const orders = require('../database/models/orders');
 const products1 = require('../database/models/products')
 const orders_details = require('../database/models/ordersDetails');
 
-//get all orders
-router.get('/', (req, res) => {
-    orders_details.find({}, {quantity: 0})
-        .populate({
-            path: '_orderId',
-            populate: {
-                path: '_userId',
-                select: 'username'
-            }
-        })
-        .populate({
-            path: '_productId',
-            select: 'title description price'
-        })
-        .then(orders => {
-            if (orders.length > 0) {
-                res.json(orders);
-            } else {
-                res.json({message: "No orders found"});
-            }
-        }).catch(err => res.json(err));  
-});
-
-// get single order
-// router.get('/:orderId', (req, res) => {
-//     orders_details.find({ '_orderId': req.params.orderId })
-//         .populate({
-//             path: '_orderId',
-//             populate: {
-//                 path: '_userId'
-//             }
-//         })
-//         .populate({
-//             path: '_productId',
-//             select: 'title description price image'
-//         })
-//         .then(orders => {
-//             if (orders.length > 0) {
-//                 res.json(orders);
-//             } else {
-//                 res.json({message: "No orders found"});
-//             }
-//         }).catch(err => res.json(err));  
-// });
-
 //place new order
 router.post('/new', async(req, res) => {
     let {userId, products} = req.body;
@@ -80,10 +35,9 @@ router.post('/new', async(req, res) => {
                     }).catch(err => console.log(err));
                 })
                 res.json({
-                    message: `Order successfully placed with order id ${newOrderId}`,
+                    message: 'Order successfully placed',
                     success: true,
-                    order_id: newOrderId,
-                    products: products
+                    order_id: newOrderId
                 })
             
             } else {

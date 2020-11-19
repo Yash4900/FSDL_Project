@@ -7,18 +7,19 @@ import {Router} from "@angular/router";
   styleUrls: ['./thankyou.component.scss']
 })
 export class ThankyouComponent implements OnInit {
-  
+  message;
   orderId;
   products;
   cartTotal;
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as {
+      message: string,
       products: any,
       orderId: any,
       total: number
     };
-
+    this.message = state.message;
     this.orderId = state.orderId.toString();
     this.products = state.products;
     this.cartTotal = state.total;

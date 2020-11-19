@@ -13,14 +13,13 @@ import { $ } from 'protractor';
 export class HomeComponent implements OnInit {
 
   products: ProductModel[] = [];
-  category: string = 'All';
+  category: string = '';
   selected: string;
   count = 0;
   slides = [
     { img: "/assets/img/c2.JPG" },
     { img: "/assets/img/c3.JPG" },
     { img: "/assets/img/cr1.JPG" }
-    // {img: "/assets/img/c2.JPG"}}
   ];
 
 
