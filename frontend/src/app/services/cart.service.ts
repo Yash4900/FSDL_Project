@@ -88,9 +88,9 @@ export class CartService {
     if(this.cartData.total == 0) {
       this.cartData = {total: 0, data: [{product: undefined, numInCart: 0}]};
     }
-
     this.cartTotal$.next(this.cartData.total);
     this.cartData$.next(this.cartData);
+    this.showSnackBar("Product deleted from cart");
     // console.log(this.cartData);
   }
 
@@ -136,6 +136,16 @@ export class CartService {
         alert('Some error occured!');
       }
     });
+  }
+
+  showSnackBar(message: string) {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+    x.innerHTML = message;
+    // Add the "show" class to DIV
+    x.className = "show";
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
 }
 
