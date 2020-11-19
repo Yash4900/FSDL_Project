@@ -4,7 +4,6 @@ import { NavigationExtras, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { CartModel } from '../models/cart.model';
 import { ProductModel } from '../models/product.model';
-import { OrderService } from './order.service';
 import { ProductService } from './product.service';
 
 @Injectable({
@@ -29,7 +28,7 @@ export class CartService {
 
   readonly baseurl = 'http://localhost:3000';
 
-  constructor(private router: Router, private http: HttpClient, private productService: ProductService, private orderService: OrderService) {  }
+  constructor(private router: Router, private http: HttpClient, private productService: ProductService) {  }
 
   addProductToCart(product_id, quantity ?: number) {
 
@@ -124,6 +123,7 @@ export class CartService {
             if(data.success) {
               const navigationExtras: NavigationExtras = {
                 state: {
+                  message: data.message,
                   products: this.cartData.data,
                   orderId: data.order_id._id,
                   total: this.cartData.total
@@ -152,9 +152,5 @@ export class CartService {
 interface OrderResponse{
   message: string;
   success: boolean;
-  order_id: any;
-  products: [{
-    id: string;
-    numInCart: string;
-  }]
+  order_id: any
 };

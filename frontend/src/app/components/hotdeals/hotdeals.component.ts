@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductModel } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
@@ -10,7 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HotdealsComponent implements OnInit {
 
-  constructor(private productService: ProductService, private cartService: CartService) { }
+  constructor(private productService: ProductService, private router: Router, private cartService: CartService) { }
 
   products: ProductModel[] = [];
 
@@ -30,6 +31,10 @@ export class HotdealsComponent implements OnInit {
   addToCart(id): void {
     this.cartService.addProductToCart(id);
     this.showSnackBar("Product added to your cart");
+  }
+
+  selectProduct(id) {
+    this.router.navigate(['/product', id]).then();
   }
 
   showSnackBar(message: string) {
