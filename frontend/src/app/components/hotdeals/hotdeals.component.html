@@ -8,22 +8,11 @@
                   <mat-card-title>{{item.title | titlecase}}</mat-card-title>
                   <mat-card-subtitle>{{item.description.substr(0,25)}}...</mat-card-subtitle>
                 </mat-card-header>
-<<<<<<< HEAD
                 <img mat-card-image src="{{item.image}}" alt="mobile" style="height: 200px; width: auto;">
                 <mat-card-content style="margin: auto; text-align: center;">
                   <p><b>Price : {{item.price | currency:'INR'}}</b></p>
                   <span><b>Hurry!   </b></span>  
                   <span id="remaining">Remaining <countdown [config]="{leftTime: 3000}"></countdown></span>
-=======
-                <img mat-card-image src="{{item.image}}" alt="mobile" style="cursor:pointer; height: 200px; width: auto; margin:auto;" (click)="selectProduct(item._id)">
-                <mat-card-content>
-                  <p>
-                    Price : {{item.price}} <i class="fas fa-rupee-sign    "></i><br>
-                    <span id="remaining">Remaining <countdown [config]="{leftTime: 3000}"></countdown></span>
-                    <br>
-                    Hurry UP
-                  </p>
->>>>>>> 260d060a22f84bfc8557a73882c902e82d21fa70
                 </mat-card-content>
                 <mat-card-actions style="margin: auto;">
                   <button mat-button style="border-radius: 20px; background-color: #039BE3; outline: none; color: white;" (click)="addToCart(item._id)">ADD TO CART</button>
@@ -32,8 +21,4 @@
            
         </div>
     </div>
-<<<<<<< HEAD
 </div>
-=======
-<!-- </div> -->
->>>>>>> 260d060a22f84bfc8557a73882c902e82d21fa70

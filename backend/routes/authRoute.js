@@ -12,24 +12,23 @@ router.post('/register', (req, res) => {
         email: req.body.email,
         fname: req.body.fname,
         lname: req.body.lname,
-        age: req.body.age
+        age: req.body.age,
+        line1: req.body.line1,
+        line2: req.body.line2,
+        city:req.body.city,
+        state:req.body.state,
+        country:req.body.country,
+        phone:req.body.phone,
+        pincode:req.body.pin
     });
-    user.save().then(uid => {
-        var add = new address({
-            line1: req.body.line1,
-            line2: req.body.line2,
-            city:req.body.city,
-            state:req.body.state,
-            country:req.body.country,
-            phone:req.body.phone,
-            pincode:req.body.pin,
-            _userId: uid
-        });
-        add.save().then(console.log('saved')).catch(err => console.log(err));
+    user.save()
+    .then(uid => {
+        console.log('saved')
         res.status(200).json({
-            message: "You are registered successfully"
-        })
-    }).catch(err => console.log(err));
+            message: "Registered successfully"
+        })}).catch(res.json({
+            message: "Some error occured"
+        }));
 });
 
 // check whether the user is register user
