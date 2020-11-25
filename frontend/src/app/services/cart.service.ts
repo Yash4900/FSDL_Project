@@ -10,7 +10,7 @@ import { ProductService } from './product.service';
   providedIn: 'root'
 })
 export class CartService {
-
+    
   // cart data
   private cartData: CartModel = {
     total: 0, // total amount of all products

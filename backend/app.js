@@ -6,11 +6,7 @@ const cors = require('cors');
 const mongoose = require('./database/dbcon');
 
 //CORS
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(cors());
 
 //this will allow our application to use json data
 app.use(express.json());

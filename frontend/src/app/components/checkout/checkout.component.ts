@@ -19,7 +19,6 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     this.cartService.cartData$.subscribe(data => this.cartData = data);
     this.cartService.cartTotal$.subscribe(total => this.cartTotal = total);
-
   }
 
   onSubmit(form: NgForm) {

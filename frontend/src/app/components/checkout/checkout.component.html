@@ -3,7 +3,6 @@
   <div class="container">
     <!-- row -->
     <div class="row">
-  
       <!-- Order Details -->
       <div class="col-md-5 order-details">
         <div class="section-title text-center">
@@ -36,9 +35,6 @@
               <span></span>
               Direct Bank Transfer
             </label>
-            <!-- <div class="caption">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div> -->
           </div>
           <div class="input-radio">
             <input type="radio" name="payment" id="payment-2">
@@ -46,9 +42,6 @@
               <span></span>
               Cheque Payment
             </label>
-            <!-- <div class="caption">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div> -->
           </div>
           <div class="input-radio">
             <input type="radio" name="payment" id="payment-3">
@@ -56,9 +49,6 @@
               <span></span>
               Paypal System
             </label>
-            <!-- <div class="caption">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div> -->
           </div>
         </div>
         <div class="input-checkbox">
@@ -73,11 +63,6 @@
         </div>
         <button type="submit" class="btn-outline-danger btn-sm my-2 btn-block" [disabled]="cartTotal <= 0 " >Place order</button>
         </form>
-          <!-- <input type="checkbox" id="terms"> -->
-          <!-- <label for="terms">
-            <span></span>
-            I've read and accept the <a href="#">terms & conditions</a>
-          </label> -->
         </div>
       </div>
       <!-- /Order Details -->
@@ -87,7 +72,6 @@
   <!-- /container -->
   </div>
   <!-- /SECTION -->
-  
   <div class="text-center my-5" *ngIf="cartData.total <= 0">
     <h4>Your Cart Is Empty</h4>
     <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>

@@ -9,23 +9,17 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 export class ProductService {
 
   readonly baseurl = 'http://localhost:3000';
-  // category$ = new BehaviorSubject<string>('0');
-
 
   constructor( private http: HttpClient ) { }
 
   // get all products 
-  getAllProducts(limitOfResults = 10) {
-    return this.http.get(this.baseurl+'/products', {
-      params: {
-        limit: limitOfResults.toString()
-      }
-    });
+  getAllProducts() {
+    return this.http.get(this.baseurl+'/products');
   }
 
   // get single product
-  getSingleProduct(id) {
-    return this.http.get(this.baseurl+'/products/'+id);
+  getSingleProduct(prod_id) {
+    return this.http.get(this.baseurl+'/products/'+prod_id);
   }
 
   // get products of a category

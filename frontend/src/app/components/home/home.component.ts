@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     this.productService.getAllProducts().subscribe((prods: { count: number, products: ProductModel[] }) => {
       this.products = prods.products;
     });
+    console.log(this.products);
   }
 
 
