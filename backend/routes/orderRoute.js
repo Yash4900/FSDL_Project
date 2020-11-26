@@ -24,15 +24,9 @@ router.post('/new', async(req, res) => {
                     } else {
                         data.quantity = 0;
                     }
-                    let order_detail = new orders_details({_orderId: newOrderId,
-                        _productId: p.product._id,
-                        quantity: inCart});
-                    order_detail.save().then(newId => {
-                        products1.updateOne({'_id': p.product._id}, {
-                            quantity: data.quantity
-                        }).then(successNum => {
-                        }).catch(err => console.log(err));
-                    }).catch(err => console.log(err));
+                    products1.updateOne({'_id': p.product._id}, {
+                        quantity: data.quantity
+                    }).then().catch(err => console.log(err));
                 })
                 res.json({
                     message: 'Order successfully placed',
