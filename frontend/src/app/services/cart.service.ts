@@ -34,25 +34,25 @@ export class CartService {
 
     // get product details using product id
     this.productService.getSingleProduct(product_id).subscribe( (prod: ProductModel) => {
-      
+    
       if(this.cartData.data[0].product === undefined) { // check if cart is empty
-        this.cartData.data[0].numInCart = quantity == undefined ? 1 : quantity;
+        this.cartData.data[0].numInCart = quantity === undefined ? 1 : quantity;
         this.cartData.data[0].product = prod;
         this.calculateTotal();
         this.cartTotal$.next(this.cartData.total);
         this.cartData$.next(this.cartData);
-      }else{ // cart is not empty
+      }else{
+        //  cart is not empty
         // find index of item in cart . if not in cart returns -1 
         let index = this.cartData.data.findIndex( p => p.product._id == prod._id);
         if(index != -1) { // if already in cart we update quantity
-          if(quantity != undefined && quantity <= prod.quantity) {
-            this.cartData.data[index].numInCart = this.cartData.data[index].numInCart < prod.quantity ? quantity : prod.quantity;
-          }else{
-            this.cartData.data[index].numInCart = this.cartData.data[index].numInCart < prod.quantity ? this.cartData.data[0].numInCart+1 : prod.quantity;
+          this.cartData.data[index].numInCart += (quantity==undefined?1:quantity);// if quantity undefined we take value as 1
+          if(this.cartData.data[index].numInCart>prod.quantity){
+            this.cartData.data[index].numInCart = prod.quantity;
           }
         }else{ // if not in cart we push 
           this.cartData.data.push({
-            numInCart: 1,
+            numInCart: (quantity===undefined)?1:((prod.quantity>=quantity)?quantity:prod.quantity),
             product: prod
           });
         }
@@ -60,7 +60,8 @@ export class CartService {
         this.cartTotal$.next(this.cartData.total);
         this.cartData$.next(this.cartData);
       }
-    });
+     }
+    );
     
   }
 

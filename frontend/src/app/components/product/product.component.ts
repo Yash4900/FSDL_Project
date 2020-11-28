@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit {
   id;
   product;
 
+  // refer to quantity input field
   @ViewChild('quantity') quantityInput;
 
   constructor(private route: ActivatedRoute,
@@ -39,7 +40,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(id) {
-    this.cartService.addProductToCart(id, this.quantityInput.nativeElement.value);
+    this.cartService.addProductToCart(id, parseInt(this.quantityInput.nativeElement.value));
     this.showSnackBar("Product added to your cart");
   }
 

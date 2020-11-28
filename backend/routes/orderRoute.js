@@ -3,7 +3,6 @@ const router = express.Router();
 
 const orders = require('../database/models/orders');
 const products1 = require('../database/models/products')
-const orders_details = require('../database/models/ordersDetails');
 
 //place new order
 router.post('/new', async(req, res) => {
