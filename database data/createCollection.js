@@ -23,14 +23,6 @@ mongoClient.connect(url, function (err, db) {
                 console.log(dbase.databaseName);
             }
         });
-        dbase.createCollection("orders_details", (err, res) => {
-            if (err) {
-                throw err;
-            } else {
-                console.log("Collection is created");
-                console.log(dbase.databaseName);
-            }
-        });
         dbase.createCollection("products", (err, res) => {
             if (err) {
                 throw err;
