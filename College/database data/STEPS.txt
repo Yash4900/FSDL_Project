@@ -1,0 +1,3 @@
+1. open mongodb compass and create "electro_shoppe" database with a collection "addresses"
+2. run the file createCollection.js using "node createCollection.js"
+3. run the file insertData.js using "node insertData.js" to insert all data into mongodb

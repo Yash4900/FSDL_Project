@@ -1,0 +1,24 @@
+<div class="section" style="margin-left: 90px;">
+    <div  id="cards">
+        <div class="card"  *ngFor="let item of products">
+          
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{item.title | titlecase}}</mat-card-title>
+                  <mat-card-subtitle>{{item.description.substr(0,25)}}...</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{item.image}}" alt="mobile" style="height: 200px; width: auto;">
+                <mat-card-content style="margin: auto; text-align: center;">
+                  <p><b>Price : {{item.price | currency:'INR'}}</b></p>
+                  <span><b>Hurry!   </b></span>  
+                  <span id="remaining">Remaining <countdown [config]="{leftTime: 3000}"></countdown></span>
+                </mat-card-content>
+                <mat-card-actions style="margin: auto;">
+                  <button mat-button style="border-radius: 20px; background-color: #039BE3; outline: none; color: white;" (click)="addToCart(item._id)">ADD TO CART</button>
+                </mat-card-actions>
+              </mat-card>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container col-md-6">
+<br><br><h4>Your Details</h4><br>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" ngModel #username class="form-control" name="username" placeholder="Enter username" required>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" ngModel #password class="form-control" name="password" placeholder="Enter password" required>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="email" ngModel #email class="form-control" name="email" placeholder="Enter email address" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Phone Number</label>
+            <input type="text" ngModel #phone class="form-control" name="phone" placeholder="Enter phone number" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>First Name</label>
+            <input type="text" ngModel #fname class="form-control" name="fname" placeholder="Enter first name" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Last Name</label>
+            <input type="text" ngModel #lname class="form-control" name="lname" placeholder="Enter last name" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Age</label>
+            <input type="number" ngModel #age class="form-control" name="age" placeholder="Enter age" min="18" required>
+        </div>
+    </div>
+    <br>
+    <h4>Your Shipping Address</h4>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Address line 1</label>
+            <input type="text" ngModel #line1 class="form-control" name="line1" placeholder="Enter address line 1" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Address line 2</label>
+            <input type="text" ngModel #line2 class="form-control" name="line2" placeholder="Enter address line 2" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>City</label>
+            <input type="text" ngModel #city class="form-control" name="city" placeholder="Enter city" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label>State</label>
+            <input type="text" ngModel #state class="form-control" name="state" placeholder="Enter state" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Country</label>
+            <input type="text" ngModel #country class="form-control" name="country" placeholder="Enter country" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label>PIN</label>
+            <input type="text" ngModel #pin class="form-control" name="pin" placeholder="Enter pin" required>
+        </div>
+    </div>
+    <div class="form-group col-md-6" style="margin-left: 250px;">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+</div>

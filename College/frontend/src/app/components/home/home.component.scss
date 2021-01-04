@@ -1,0 +1,21 @@
+.disabled {
+    cursor: not-allowed
+}
+
+#carousel{
+    display: flex;
+    justify-content: space-between;;
+}
+
+#carousel #button{
+    align-self: center;
+}
+#carousel #button i{
+    font-size:20px;
+}
+
+.inner img{
+    width: 85vw;
+
+}
+

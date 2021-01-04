@@ -1,0 +1,144 @@
+<!-- SECTION -->
+<!-- Image Slider -->
+<div class="section">
+        <div class="row" id="carousel" style="margin-left: 30px; margin-right: 30px;">
+            <div id="button" style="display: inline;">
+            <i class="fa fa-arrow-circle-left" (click)="next()" aria-hidden="true"></i>
+            </div>
+            <div class="inner" style="display: inline;"> 
+                <img src="{{selected}}" alt="">
+            </div>
+            <div id="button" style="display: inline;">
+            <i class="fa fa-arrow-circle-right" (click)="prev()" aria-hidden="true"></i>
+            </div>
+        </div>
+
+</div>
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <label><b>Category</b></label>
+            <div class="col-md-6">
+                <div class="form-row">
+                <div class="form-group col-md-4">
+                    <select [(ngModel)]="category" class="input-select" (change)="changeCategory()">
+                        <option value="All" selected>All</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="television">Television</option>
+                        <option value="washing machine">Washing machine</option>
+                        <option value="microwave">Microwave</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="chargers">Chargers</option>
+                        <option value="power bank">Power bank</option>
+                        <option value="refrigerator">Refrigerator</option>
+                        <option value="ac">AC</option>
+                        <option value="earphones">Earphones</option>
+                        <option value="headphones">Headphones</option>
+                        <option value="cameras">Cameras</option>
+                        <option value="smartwatches">Smart watches</option>
+                        <option value="pendrive">Pendrive</option>
+                        <option value="memory cards">Memory Card</option>
+                        <option value="routers">Routers</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <input class="input" [(ngModel)]="category" placeholder="What are you looking for?">
+                </div>
+                <div class="form-group col-md-2">
+                    <button class="search-btn btn" (click)="changeCategory()" style="border-color: #039BE3; background-color: #039BE3; color: white;">Search</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">New Products</h3>
+                </div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6" *ngFor="let p of products" >
+                        <div class="card my-2">
+                            <img src="{{p.image}}" alt="{{p.title}}" class="card-img-top" style="cursor:pointer; height: 200px; width: auto; margin:auto;" (click)="selectProduct(p._id)">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <p><b>{{ p.title | titlecase }}</b></p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6>{{p.description.substr(0,25)}}</h6>
+                                <p>{{p.price | currency:'INR'}}</p>
+                            </div>
+                            <div class="row">
+                                <div class="offset-md-3 col-md-6" style="margin-bottom: 10px;">
+                                    <button class="btn btn-outline-primary btn-sm btn-block" [class.disabled]="p.quantity < 1" [class.btn-outline-danger]="p.quantity < 1" (click)="addToCart(p._id)">
+                                    <b>{{ p.quantity < 1 ? "No Stock" : "Add To Cart" }}</b>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- HOT DEAL SECTION -->
+<div id="hot-deal" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hot-deal">
+                    <ul class="hot-deal-countdown">
+                        <li>
+                            <div>
+                                <h3>02</h3>
+                                <span>Days</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>10</h3>
+                                <span>Hours</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>34</h3>
+                                <span>Mins</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>60</h3>
+                                <span>Secs</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h2 class="text-uppercase">hot deal this week</h2>
+                    <p>New Collection Up to 50% OFF</p>
+                    <a class="primary-btn cta-btn" routerLink="/hotdeals">Shop now</a>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /HOT DEAL SECTION -->

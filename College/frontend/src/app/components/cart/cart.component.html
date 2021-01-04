@@ -1,0 +1,65 @@
+<!-- 
+    Display cart in tabular form
+ -->
+
+<div class="container">
+    <div class="text-center my-5" *ngIf="cartData.data[0].numInCart==0">
+        <h3>You have not added any products in your cart</h3>
+        <br><br>
+        <button class="btn btn-primary" routerLink="/">Back To Shop</button>
+    </div>
+    <div *ngIf="cartData.data[0].numInCart!=0">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Sub total</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of cartData.data; let i=index">
+                            <td>
+                                <img [src]="c.product.image" [alt]="c.product.title" style="height:60px; width:auto;">
+                            </td>
+                            <td>{{c.product.title}}</td>
+                            <td>{{c.product.price | currency:'INR'}}</td>
+                            <td>
+                                <form>
+                                    <div class="value-button" id="increase" (click)="updateQuantity(i, 'increase')" style="cursor:pointer"><b>+</b></div>
+                                    <input type="number" name="number" id="number" [value]="c.numInCart" [max]="c.product.quantity" readonly>
+                                    <div class="value-button" id="decrease" (click)="updateQuantity(i, 'decrease')" style="cursor:pointer"><b>-</b></div>
+                                </form>
+                            </td>
+                            <td>
+                                {{cartService.calculateSubTotal(i) | currency:'INR'}}
+                            </td>
+                            <td><button class="btn btn-danger" (click)="cartService.deleteProductFromCart(i)">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{cartTotal | currency:'INR'}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-12 d-flex justify-content-around">
+                <button class="btn btn-primary" routerLink="/">Buy More</button>
+                <button class="btn btn-danger" routerLink="/checkout">Checkout</button>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

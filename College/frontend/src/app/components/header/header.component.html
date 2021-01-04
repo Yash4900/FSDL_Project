@@ -1,0 +1,121 @@
+<!-- HEADER -->
+<header>
+    <!-- TOP HEADER -->
+    <div id="top-header">
+        <div class="container">
+            <ul class="header-links pull-left">
+                <li><a href="#"><i class="fa fa-phone"></i> 022 6644 9191</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> kjsce-admission@somaiya.edu</a></li>
+                <li><a href="#"><i class="fa fa-map-marker"></i> Vidya Vihar East, Mumbai, Maharashtra 400077</a></li>
+            </ul>
+            <ul class="header-links pull-right" style="cursor: pointer;">
+                <!-- <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li> -->
+                <li routerLink="/register"><i class="fa fa-user-o"></i><p style="font-size:16px;color:white; display: inline;">Create Account</p></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /TOP HEADER -->
+
+    <!-- MAIN HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- LOGO -->
+                <div class="col-md-3">
+                    <div class="header-logo" style="margin-top: 20px;">
+                        <a href="#" class="logo">
+                            <!-- <h1 style="color: white;">Electro Shoppe</h1> -->
+                            <img src="/assets/img/logo.png" alt="Moblie Shoppe">
+                        </a>
+                    </div>
+                </div>
+                <!-- /LOGO -->
+
+                <!-- SEARCH BAR -->
+                <div class="col-md-6">
+                    <div class="header-search">
+                        <form>
+                            
+                        </form>
+                    </div>
+                </div>
+                <!-- /SEARCH BAR -->
+
+                <!-- ACCOUNT -->
+                <div class="col-md-3 clearfix">
+                    <div class="header-ctn">
+
+                        <!-- Cart -->
+                        <div class="dropdown" style="cursor: pointer; margin-top: 20px;">
+                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Your Cart</span>
+                                <div class="qty">{{cartData.data[0].numInCart!=0 ? cartData.data.length : 0}}</div>
+                            </a>
+                            <div class="cart-dropdown">
+                                <div class="cart-list" *ngIf="cartData.data[0].numInCart!=0">
+                                    <div class="product-widget" *ngFor="let c of cartData.data; let i=index">
+                                        <div class="product-img">
+                                            <img [src]="c.product.image" [alt]="c.product.title" style="height:50px; width:auto">
+                                        </div>
+                                        <div class="product-body">
+                                            <h3 class="product-name"><a href="#">{{c.product.title}}</a></h3>
+                                            <h4 class="product-price"><span class="qty">{{c.numInCart}}x</span>{{c.product.price | currency: 'INR'}}</h4>
+                                        </div>
+                                        <button class="delete" (click)="cartService.deleteProductFromCart(i)"><i class="fa fa-close"></i></button>
+                                    </div>
+
+                                </div>
+                                <div class="cart-summary">
+                                    <small>{{cartData.data[0].numInCart!=0 ? cartData.data.length : 0}} Item(s) selected</small>
+                                    <h5>SUBTOTAL: {{ cartTotal | currency:'INR' }}</h5>
+                                </div>
+                                <div class="cart-btns">
+                                    <a routerLink="/cart" >View Cart</a>
+                                    <a routerLink="/checkout">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Cart -->
+
+                        <!-- Menu Toogle -->
+                        <div class="menu-toggle">
+                            <a href="#">
+                                <i class="fa fa-bars"></i>
+                                <span>Menu</span>
+                            </a>
+                        </div>
+                        <!-- /Menu Toogle -->
+                    </div>
+                </div>
+                <!-- /ACCOUNT -->
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!-- /MAIN HEADER -->
+</header>
+<!-- /HEADER -->
+
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav py-3">
+                <li class="active"><a routerLink="/" >Home</a></li>
+                <li><a routerLink="/hotdeals">Hot Deals</a></li>
+                <!-- <li><a href="#">Categories</a></li> -->
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->

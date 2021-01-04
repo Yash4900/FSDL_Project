@@ -1,0 +1,35 @@
+<h3>
+    <a class="btn btn-secondary" href="/products">+ Insert New</a>   
+    &nbsp;Product List
+</h3>
+<br>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Desc.</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Short desc.</th>
+            <th>Cat. ID</th>  
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>  
+            <td>{{this.price}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.short_desc}}</td>
+            <td>{{this._catId}}</td>
+            <td>
+                <a href="/products/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/products/delete/{{this._id}}"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

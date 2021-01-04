@@ -1,0 +1,78 @@
+<div class="section" *ngIf="cartTotal > 0">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- Order Details -->
+      <div class="col-md-5 order-details">
+        <div class="section-title text-center">
+          <h3 class="title">Your Order</h3>
+        </div>
+        <div class="order-summary">
+          <div class="order-col">
+            <div><strong>PRODUCT</strong></div>
+            <div><strong>SubTotal</strong></div>
+          </div>
+          <div class="order-products">
+            <div class="order-col" *ngFor="let c of cartData.data;">
+              <div>{{c.numInCart}}x {{c.product.title}}</div>
+              <div>{{(c.product.price*c.numInCart) | currency:'INR'}}</div>
+            </div>
+          </div>
+          <div class="order-col">
+            <div>Shipping</div>
+            <div><strong>FREE</strong></div>
+          </div>
+          <div class="order-col dropdown-divider">
+            <div><strong>TOTAL</strong></div>
+            <div><strong class="order-total">{{cartTotal | currency:'INR'}}</strong></div>
+          </div>
+        </div>
+        <div class="payment-method">
+          <div class="input-radio">
+            <input type="radio" name="payment" id="payment-1">
+            <label for="payment-1">
+              <span></span>
+              Direct Bank Transfer
+            </label>
+          </div>
+          <div class="input-radio">
+            <input type="radio" name="payment" id="payment-2">
+            <label for="payment-2">
+              <span></span>
+              Cheque Payment
+            </label>
+          </div>
+          <div class="input-radio">
+            <input type="radio" name="payment" id="payment-3">
+            <label for="payment-3">
+              <span></span>
+              Paypal System
+            </label>
+          </div>
+        </div>
+        <div class="input-checkbox">
+        <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" ngModel #username="ngModel" class="form-control" name="username" placeholder="Enter username" >
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" ngModel #password="ngModel" class="form-control" name="password" placeholder="Enter password" >
+        </div>
+        <button type="submit" class="btn-outline-danger btn-sm my-2 btn-block" [disabled]="cartTotal <= 0 " >Place order</button>
+        </form>
+        </div>
+      </div>
+      <!-- /Order Details -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+  </div>
+  <!-- /SECTION -->
+  <div class="text-center my-5" *ngIf="cartData.total <= 0">
+    <h4>Your Cart Is Empty</h4>
+    <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
+  </div>
