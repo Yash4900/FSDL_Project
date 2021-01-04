@@ -1,5 +1,5 @@
 require('./config/config');
-require('./database/dbcon')
+require('./database/dbcon');
 
 // import installed packages
 const express = require('express');

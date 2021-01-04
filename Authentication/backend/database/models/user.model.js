@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-var userSchema = mongoose.Schema({
+userSchema = mongoose.Schema({
     fullName: {
         type: String,
         required: 'Full name cannot be empty'
@@ -15,13 +15,11 @@ var userSchema = mongoose.Schema({
         type: String,
         required: 'Password cannot be empty'
     },
-    saltSecret: {
-        type: String
-    }
+    saltSecret: String
 });
 
 // encode the password
-userSchema.pre('save', (next) => {
+userSchema.pre('save', function(next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
