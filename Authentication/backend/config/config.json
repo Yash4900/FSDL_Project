@@ -1,0 +1,10 @@
+{
+    "development": {
+        "PORT": 3000,
+        "URI": "mongodb://localhost:27017/authentication"
+    },
+    "production": {
+        "PORT": 80,
+        "URI": "mongodb://xxxxxx/dbname"
+    }
+}
