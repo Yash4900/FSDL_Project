@@ -1,0 +1,29 @@
+<div class="container col-md-6">
+    <div class="head">
+        <h6><b>Login</b></h6>
+        <a class="btn-dark btn" routerLink="/">Register</a>
+    </div>
+    <div>
+        <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && loginUser(loginForm)" style="margin:20px;">
+            <div class="form-group">
+                <label><b>Email:</b></label>
+                <input type="text" #email="ngModel" ngModel  name="email" placeholder="Enter email" class="form-control" [class.is-invalid]="loginForm.submitted && !email.valid" required [pattern]="emailRegex">
+                <div *ngIf="loginForm.submitted && !email.valid">
+                    <label *ngIf="email.errors.required" class="val-msg">This is a required field</label>
+                    <label *ngIf="email.errors.pattern" class="val-msg">Enter a valid email</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><b>Password</b></label>
+                <input type="password" #password="ngModel" ngModel name="password" placeholder="Enter password" class="form-control" [class.is-invalid]="loginForm.submitted && !password.valid" required minlength="4">
+                <div *ngIf="loginForm.submitted && !password.valid">
+                    <label *ngIf="password.errors.required" class="val-msg">This is a required field</label>
+                    <label *ngIf="password.errors.minlength" class="val-msg">Password must have atleast 4 characters</label>
+                </div>
+            </div>
+            <div class="register-btn" style="justify-content: center; display: flex; margin-top: 30px;">
+                <input type="submit" class="btn-dark btn" value="Login"/>
+            </div>
+        </form>
+    </div>
+</div>
