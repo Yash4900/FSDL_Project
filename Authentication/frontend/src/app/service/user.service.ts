@@ -25,7 +25,7 @@ export class UserService {
 
   getToken() {
     var token = localStorage.getItem('token');
-    if(token){
+    if(token!=null){
       var payload = atob(token.split('.')[1]);
       return JSON.parse(payload);
     }else{

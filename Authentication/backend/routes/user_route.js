@@ -28,14 +28,13 @@ router.post('/register', (req, res) => {
 router.post('/login',(req,res)=>{
     User.findOne({email: req.body.email},(err, doc)=>{
         if(err){
-            res.status(401).send('Something went wrong');
-        }
-        else if(doc==null){
+            res.status(401).send('Something went wrong!');
+        }else if(doc==null){
             res.status(401).send('This email is not registered');
         }else{
             if(bcrypt.compareSync(req.body.password, doc.password)){
-                var token = jwt.sign({id: doc._id}, 'secret123', { expiresIn: '1h' });
-                res.status(200).json({'token': token});
+                var token = jwt.sign({'id':doc._id, 'name':doc.fullName, 'email':doc.email},'SECRETKEY',{ expiresIn: 60 });
+                res.status(200).json({'token':token});
             }else{
                 res.status(401).send('Incorrect password');
             }
