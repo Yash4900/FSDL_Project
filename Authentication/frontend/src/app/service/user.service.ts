@@ -9,12 +9,6 @@ export class UserService {
 
   readonly baseurl = 'http://localhost:3000/api';
 
-  // selectedUser: User = {
-  //   fullName: '',
-  //   email: '',
-  //   password: ''
-  // }
-
   constructor(private http:HttpClient) { }
 
   registerUser(user: User) {
@@ -23,5 +17,32 @@ export class UserService {
 
   loginUser(credentials) {
     return this.http.post(`${this.baseurl}/login`, credentials);
+  }
+
+  setToken(token: string) {
+    localStorage.setItem('token',token);
+  }
+
+  getToken() {
+    var token = localStorage.getItem('token');
+    if(token){
+      var payload = atob(token.split('.')[1]);
+      return JSON.parse(payload);
+    }else{
+      return null;
+    }
+  }
+
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn(){
+    if(this.getToken()==null){
+      return false;
+    }else{
+      var token = this.getToken();
+      return (token.exp>Date.now()/1000);
+    }
   }
 }

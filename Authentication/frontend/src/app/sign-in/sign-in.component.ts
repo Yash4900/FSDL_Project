@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,7 +11,7 @@ import { UserService } from '../service/user.service';
 export class SignInComponent implements OnInit {
 
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,8 @@ export class SignInComponent implements OnInit {
   loginUser(form: NgForm) {
     this.userService.loginUser(form.value).subscribe(
       (res)=>{
+        this.userService.setToken(res['token']);
+        this.router.navigateByUrl('/user');
       },
       (err)=>{
         this.showSnackBar(err.error);
