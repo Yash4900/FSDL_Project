@@ -18,7 +18,7 @@ Navigate to frontend folder and run the following command
 ng serve
 ```
 
-Made using
+<h4>Made using</h4>
 
 [![](https://img.shields.io/badge/Mongo_DB-green?style=flat-square&logo=mongodb)](https://flutter.dev/docs)
 [![](https://img.shields.io/badge/Express-black?style=flat-square&logo=express)](https://flutter.dev/docs)
